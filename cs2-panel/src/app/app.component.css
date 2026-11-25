@@ -1,0 +1,22 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+/* O menu usa flex e quebra linha quando a tela do celular é pequena. */
+}
+.titulo { font-weight: bold; }
+.espaco { flex: 1 1 auto; }
+.ativo { background: rgba(255, 255, 255, 0.18); }
+.conteudo {
+/* O espaço entre os links empurra o menu para a direita no computador. */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+@media (max-width: 520px) {
+/* Limito a largura do conteúdo e deixo uma margem nas laterais. */
+  .conteudo { padding: 12px 8px 30px; }
+  .titulo { font-size: 16px; }
+}
+/* Em telas pequenas diminuo o espaçamento e o tamanho do título. */

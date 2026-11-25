@@ -1,0 +1,11 @@
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  background: #f4f6f9;
+/* Deixo a página sem margem e com um fundo cinza bem clarinho. */
+  color: #1f2937;
+}
+h1, h2, h3 { margin: 0 0 14px; }
+.cheio { width: 100%; }
+/* A fonte Roboto é a mesma que o Angular Material usa por padrão. */

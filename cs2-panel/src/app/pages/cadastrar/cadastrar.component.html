@@ -1,0 +1,70 @@
+<h1>{{ editando ? 'Editar jogador' : 'Cadastrar jogador' }}</h1>
+<p class="subtitulo">Preencha os dados do jogador e salve no servidor.</p>
+<mat-card class="form-card">
+  <mat-card-content>
+    <form (ngSubmit)="salvar()" #form="ngForm">
+  <!-- O título muda na edição e o formulário chama salvar ao enviar. -->
+      <mat-form-field appearance="outline" class="campo">
+        <mat-label>Nickname</mat-label>
+        <input matInput name="nickname" [(ngModel)]="jogador.nickname" required>
+      </mat-form-field>
+      <p class="erro" *ngIf="mensagem">{{ mensagem }}</p>
+  <!-- O ngModel liga cada campo à variável jogador do componente. -->
+      <div class="linha">
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Função</mat-label>
+          <mat-select name="funcao" [(ngModel)]="jogador.funcao">
+            <mat-option value="AWPer">AWPer</mat-option>
+  <!-- As opções de função são as mesmas usadas no filtro do ranking. -->
+            <mat-option value="Rifler">Rifler</mat-option>
+            <mat-option value="IGL">IGL</mat-option>
+            <mat-option value="Entry">Entry</mat-option>
+          </mat-select>
+        </mat-form-field>
+  <!-- Fecho o select e abro o campo de nome do time. -->
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Time</mat-label>
+          <input matInput name="time" [(ngModel)]="jogador.time">
+        </mat-form-field>
+      </div>
+  <!-- Função e time ficam lado a lado no computador. -->
+      <div class="linha">
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Mapas</mat-label>
+          <input matInput type="number" min="0" name="mapas" [(ngModel)]="jogador.mapas">
+        </mat-form-field>
+  <!-- Mapas, kills e deaths são números com valor mínimo zero. -->
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Kills</mat-label>
+          <input matInput type="number" min="0" name="kills" [(ngModel)]="jogador.kills">
+        </mat-form-field>
+      </div>
+  <!-- Fecho a linha de mapas e kills antes de abrir a próxima. -->
+      <div class="linha">
+  <!-- Abro uma nova linha para deaths e rating. -->
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Deaths</mat-label>
+          <input matInput type="number" min="0" name="deaths" [(ngModel)]="jogador.deaths">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="campo">
+  <!-- O rating aceita casas decimais porque o passo é 0.01. -->
+          <mat-label>Rating</mat-label>
+          <input matInput type="number" step="0.01" name="rating" [(ngModel)]="jogador.rating">
+  <!-- O rating aceita casas decimais porque o passo é 0.01. -->
+        </mat-form-field>
+      </div>
+      <div class="botoes">
+  <!-- Terminei os campos e agora vêm os botões de salvar e cancelar. -->
+        <button mat-raised-button color="primary" type="submit">
+          <mat-icon>save</mat-icon> {{ editando ? 'Salvar alterações' : 'Cadastrar' }}
+        </button>
+        <button mat-stroked-button type="button" (click)="voltar()">
+          <mat-icon>arrow_back</mat-icon> Cancelar
+  <!-- Cancelar apenas volta para o ranking sem salvar. -->
+        </button>
+      </div>
+    </form>
+  <!-- O botão salva e o cancelar volta para o ranking sem gravar. -->
+  </mat-card-content>
+</mat-card>
+<!-- Fecho o card e o formulário de cadastro. -->

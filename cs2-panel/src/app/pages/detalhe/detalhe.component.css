@@ -1,0 +1,9 @@
+.detalhe { max-width: 760px; }
+.grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+.caixa { background: #f4f6fa; border-radius: 8px; padding: 14px; text-align: center; }
+.rotulo { display: block; color: #6b7280; font-size: 12px; margin-bottom: 6px; }
+/* A grade cria caixas que se acomodam sozinhas no celular. */
+.caixa strong { font-size: 22px; color: #1f2937; }
+.explicacao { color: #6b7280; font-size: 13px; margin-top: 16px; }
+mat-card-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 12px; }
+/* Os números ficam grandes e os botões quebram linha se precisar. */

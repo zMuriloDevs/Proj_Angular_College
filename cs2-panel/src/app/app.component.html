@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="menu">
+  <mat-icon>sports_esports</mat-icon>
+  <span class="titulo">{{ titulo }}</span>
+  <span class="espaco"></span>
+  <a mat-button routerLink="/stats" routerLinkActive="ativo">
+  <!-- O toolbar mostra o título e o primeiro link do nosso menu. -->
+    <mat-icon>leaderboard</mat-icon> Estatísticas
+  </a>
+  <a mat-button routerLink="/novo" routerLinkActive="ativo">
+    <mat-icon>person_add</mat-icon> Novo jogador
+  </a>
+  <!-- O routerLinkActive deixa o link da página atual com outra cor. -->
+</mat-toolbar>
+<main class="conteudo">
+  <router-outlet></router-outlet>
+</main>
+<!-- O router-outlet é o "espaço" onde cada rota desenha o seu componente. -->

@@ -1,0 +1,14 @@
+# Pastas geradas por instalacao e build
+node_modules/
+dist/
+.angular/
+
+# Arquivos de log e do sistema
+*.log
+.DS_Store
+Thumbs.db
+
+# Copias usadas pelo Desfazer (criadas em tempo de execucao)
+backend/jogadores-anterior.json
+backend/times-anterior.json
+backend/ultima-alteracao.txt

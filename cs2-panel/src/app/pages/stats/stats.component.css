@@ -1,0 +1,24 @@
+.subtitulo { color: #6b7280; margin-bottom: 16px; }
+.filtros { margin-bottom: 16px; }
+.linha-filtros { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.campo-busca { flex: 2 1 260px; }
+.campo-filtro { flex: 1 1 160px; }
+/* A linha de filtros quebra em várias linhas no celular. */
+.mensagem { color: #1565c0; font-size: 13px; margin: 6px 0 0; }
+.tabela-card { padding: 8px; }
+.tabela-wrapper { overflow-x: auto; }
+.tabela { width: 100%; min-width: 900px; }
+/* A tabela larga rola para o lado sem quebrar o layout da página. */
+.posicao { font-weight: 700; color: #2563eb; width: 40px; }
+.rating { color: #2e7d32; font-size: 15px; }
+mat-header-cell { font-weight: 700; color: #374151; }
+mat-cell, mat-header-cell { padding-right: 10px; }
+/* A posição fica azul, o rating verde e o cabeçalho em negrito. */
+.vazio { color: #6b7280; text-align: center; padding: 18px; }
+.nota { color: #6b7280; font-size: 12px; margin-top: 14px; }
+@media (max-width: 520px) {
+  .subtitulo { font-size: 13px; }
+  .nota { font-size: 11px; }
+/* Essas regras menores valem somente para telas pequenas. */
+}
+/* No celular eu diminuo os textos de apoio para economizar espaço. */
