@@ -1,75 +1,122 @@
 .masthead {
   background: var(--fundo);
-  border-bottom: 4px double var(--item);
-  padding: 14px 20px 0;
+  border-bottom: 8px solid var(--acao);
+/* cabecalho frio com barra grossa embaixo */
+  padding: 0;
+  overflow: hidden;
 }
-/* masthead com traço duplo embaixo e faixa de links */
-/* o topo do jornal: nome grande e logo sem fundo */
+/* o topo inteiro virou uma faixa de dados */
 
-.logo { height: 52px; width: auto; display: block; }
-.cabecalho {
-  margin: 0;
-  color: var(--realce);
-  font-size: 10px;
-/* segue o estilo */
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.masthead-topo {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+/* logo, titulo e carimbo em tres colunas */
+  gap: 22px;
+  align-items: end;
+  padding: 18px 20px 10px;
 }
-/* linha miúda acima do nome, bem de jornal */
+/* sem centro, a coluna do meio come tudo */
 
+.logo { height: 62px; width: auto; display: block; }
 .masthead-titulo {
   margin: 0;
   font-family: 'Rubik', 'Archivo', sans-serif;
-  font-size: 34px;
+  font-size: clamp(40px, 7vw, 78px);
+/* segue o estilo */
   font-weight: 800;
-/* detalhe simples */
-  line-height: 1;
+/* titulo gigante, quase encostando na faixa */
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
   color: var(--painel);
 }
-/* a manchete do site usa Rubik, o resto do site usa Archivo */
+/* o nome do site virou manchete, não etiqueta */
+
+.masthead-lado {
+  border-left: 1px solid var(--realce);
+  padding-left: 14px;
+  color: var(--painel);
+/* carimbo lateral com dados curtos */
+  font-size: 10px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+/* a lateral quebra a simetria do cabecalho */
+
+.ticker {
+  background: var(--acao);
+  color: var(--painel);
+  overflow: hidden;
+  white-space: nowrap;
+/* faixa continua, sem animação pra não distrair */
+  padding: 6px 20px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+/* dados passando antes do menu */
+.ticker span { margin-right: 10px; }
 
 .menu {
   max-width: 1180px;
-  margin: 12px auto 0;
+  margin: 0 auto;
   display: flex;
+/* detalhe simples */
   flex-wrap: wrap;
-/* mantive reto */
-  border-top: 1px solid var(--item);
+/* menu reto, colado na faixa de dados */
+  border-top: 1px solid var(--realce);
 }
 .menu a {
-  padding: 8px 16px;
+  padding: 11px 18px;
   color: var(--painel);
-/* traco e texto */
+/* mantive reto */
   text-decoration: none;
-  font-size: 13px;
+/* separador fino entre os links */
+  font-size: 11px;
   font-weight: 700;
-  border-right: 1px solid var(--item);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+/* cada link é um segmento da régua */
+  border-right: 1px solid var(--realce);
 }
-/* separadores finos entre os links, sem pílulas */
-
-.menu a.ativo {
-  background: var(--item);
-  color: var(--realce);
-}
-.menu a:hover { background: var(--item); color: var(--realce); }
-/* o link aberto fica com o fundo de tijolo */
+.menu a:first-child { border-left: 1px solid var(--realce); }
+.menu a.ativo { background: var(--painel); color: var(--fundo); }
+.menu a:hover { background: var(--painel); color: var(--fundo); }
+/* o link aberto inverte e vira um bloco claro */
 
 .conteudo {
   max-width: 1180px;
-  margin: 20px auto 36px;
-  padding: 24px;
+  margin: 30px auto 52px;
+  padding: 38px 42px 46px;
+  position: relative;
+/* folha creme com borda so na esquerda */
   background: var(--painel);
-/* ajuste rapido */
-  border: 1px solid var(--item);
+  color: var(--texto);
+  border-left: 12px solid var(--acao);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
 }
-/* a folha terracota segura todo o texto */
+/* o canto cortado quebra o retangulo chato */
 
-@media (max-width: 640px) {
-  .masthead { padding: 10px 12px 0; }
-  .logo { height: 38px; }
-  .masthead-titulo { font-size: 26px; }
-  .conteudo { margin: 12px; padding: 14px; }
-/* segue o estilo */
-  .menu a { padding: 6px 10px; font-size: 12px; }
+.conteudo::before {
+  content: 'ECOSTATS / DADOS';
+  position: absolute;
+  top: 12px;
+  right: 22px;
+/* carimbo discreto no canto da folha */
+  color: var(--acao);
+  font-size: 9px;
+  letter-spacing: 0.18em;
 }
-/* no celular o jornal encolhe, mas mantém as regras */
+/* fica acima do texto, sem empurrar nada */
+
+@media (max-width: 760px) {
+  .masthead-topo { grid-template-columns: auto 1fr; }
+  .masthead-lado { display: none; }
+  .masthead-titulo { font-size: 40px; }
+/* no celular o titulo encolhe e o carimbo sai */
+  .conteudo { margin: 14px; padding: 24px 18px 32px; clip-path: none; }
+}
+/* a folha volta a ser retangulo na tela pequena */

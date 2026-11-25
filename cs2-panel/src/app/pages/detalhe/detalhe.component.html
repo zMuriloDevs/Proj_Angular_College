@@ -1,7 +1,9 @@
+<h1 class="manchete">Ficha do jogador</h1>
 <div class="detalhe" *ngIf="!carregando && jogador; else carregandoTpl">
   <mat-card>
     <mat-card-header>
       <mat-card-title>{{ jogador.nickname }}</mat-card-title>
+<!-- segue o markup -->
       <mat-card-subtitle>{{ nomeTime(jogador) }} · {{ jogador.funcao }}</mat-card-subtitle>
 <!-- segue o markup -->
     </mat-card-header>

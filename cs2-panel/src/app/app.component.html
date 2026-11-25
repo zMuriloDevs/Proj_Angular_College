@@ -1,23 +1,36 @@
 <header class="masthead">
   <div class="masthead-topo">
-<!-- o topo imita o cabecalho de um jornal -->
+<!-- topo sem simetria: logo, nome gigante e dados na lateral -->
     <img src="logo/Logo_EcoStats.png" alt="Logo da EcoStats" class="logo">
-    <div>
-      <p class="cabecalho">Edição CS2 · ranking e estatísticas</p>
-      <p class="masthead-titulo">{{ titulo }}</p>
-<!-- nome do site em destaque, com logo transparente do lado -->
+    <div class="masthead-titulo">{{ titulo }}</div>
+    <div class="masthead-lado">
+      <span>CS2 / 2026</span>
+<!-- a lateral funciona como carimbo de edição -->
+      <span>Dados locais</span>
+      <span>Ranking ao vivo</span>
     </div>
+  </div>
+  <div class="ticker">
+<!-- faixa de dados correndo por cima do menu -->
+    <span>Paleta fria</span>
+    <span>//</span>
+    <span>Ranking CS2</span>
+    <span>//</span>
+    <span>Direto do JSON</span>
+<!-- a faixa repete o separador // entre os dados -->
+    <span>//</span>
+    <span>Edição verde</span>
   </div>
   <nav class="menu" aria-label="Menu principal">
     <a routerLink="/home" routerLinkActive="ativo">Início</a>
+<!-- o menu virou uma régua de links, sem botões redondos -->
     <a routerLink="/stats" routerLinkActive="ativo">Estatísticas</a>
-<!-- os links viram uma faixa, sem botões arredondados -->
     <a routerLink="/times" routerLinkActive="ativo">Times</a>
     <a routerLink="/novo" routerLinkActive="ativo">Novo jogador</a>
   </nav>
 </header>
-<main class="conteudo">
 <!-- segue o markup -->
+<main class="conteudo">
   <router-outlet></router-outlet>
 </main>
-<!-- cada rota desenha a página dentro do painel -->
+<!-- cada rota desenha a pagina dentro da folha creme -->

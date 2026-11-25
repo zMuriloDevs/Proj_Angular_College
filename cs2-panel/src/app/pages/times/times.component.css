@@ -1,24 +1,68 @@
-.acao { margin-bottom: 16px; }
+.acao { margin-bottom: 26px; transform: rotate(-1deg); transform-origin: left; }
+/* botão de novo time levemente torto */
 .grade {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 0 24px;
-/* segue o estilo */
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 0 26px;
+/* colunas automaticas, sem caixas fechadas */
+  border-top: 6px solid var(--fundo);
 }
-.grade { border-top: 1px solid var(--item); }
-/* lista em colunas, com uma régua em cima */
+/* a lista abre com um traço grosso */
 
-.time-card { border-bottom: 1px solid var(--item); padding: 14px 0; }
+.time-card {
+  border-bottom: 2px solid var(--acao);
+  padding: 20px 0;
+/* cada time é uma notinha, não um card */
+}
+.time-card:nth-child(even) { margin-top: 24px; }
+/* as linhas pares descem, quebrando a grade */
+
 .time-card h2 {
   font-family: 'Rubik', 'Archivo', sans-serif;
-  font-size: 20px;
-  margin: 0 0 6px;
-/* detalhe simples */
+  font-size: 28px;
+  text-transform: uppercase;
+/* nome do time em manchete pequena */
+  line-height: 0.95;
+  margin: 0 0 8px;
 }
-.coach { color: var(--texto); font-size: 12px; margin: 0 0 10px; }
-/* cada time é uma notinha, não um card colorido */
+/* o nome manda, o resto é apoio */
 
-.jogadores { color: var(--texto); font-size: 13px; margin: 0; }
-.quantidade { color: var(--item); font-family: 'Rubik', 'Archivo', sans-serif; font-size: 12px; margin: 6px 0 0; }
-.vazio { margin-top: 14px; }
-/* a contagem de vagas usa a mesma tinta do cabeçalho */
+.coach {
+  color: var(--acao);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+/* coach em carimbo */
+  margin: 0 0 12px;
+}
+/* linha curta e espacada */
+
+.jogadores {
+  font-size: 13px;
+  margin: 0;
+  border-left: 4px solid var(--realce);
+/* a lista de nomes ganha um traço de menta */
+  padding-left: 10px;
+}
+/* so um toque de cor por time */
+
+.quantidade {
+  color: var(--acao);
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+/* contagem vira etiqueta de vaga */
+  letter-spacing: 0.1em;
+  margin: 8px 0 0;
+}
+/* vagas em Rubik, bem curto */
+
+.vazio { border: 2px dashed var(--acao); padding: 16px; }
+/* vazio com contorno tracejado */
+@media (max-width: 760px) {
+  .grade { grid-template-columns: 1fr; }
+  .time-card:nth-child(even) { margin-top: 0; }
+/* no celular a grade volta a ser reta */
+  .acao { transform: none; }
+}
+/* sem torto e sem deslocamento no mobile */

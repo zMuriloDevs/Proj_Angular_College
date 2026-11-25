@@ -1,14 +1,38 @@
 .form-card {
-  max-width: 760px;
-  border-top: 3px solid var(--item);
-  padding-top: 16px;
+  max-width: 840px;
+  border-left: 8px solid var(--acao);
+  padding: 4px 0 4px 22px;
+/* formulário curto com régua na esquerda */
 }
-/* segue o estilo */
-.campo { width: 100%; margin-bottom: 6px; }
-.linha { display: flex; gap: 14px; flex-wrap: wrap; }
-/* só nome e coach, num formulário curto e reto */
+.campo { width: 100%; margin-bottom: 8px; }
+/* so nome e coach, sem confuseção */
+.erro {
+  margin: 0 0 10px;
+  border-left: 4px solid var(--acao);
+/* aviso colado na régua */
+  padding-left: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+/* erro em carimbo, igual ao outro cadastro */
 
-.erro { margin: 0 0 10px; }
-.botoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--item); }
-form { padding-top: 8px; }
-/* mesma faixa de botões do cadastro de jogador */
+.botoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+/* botoes separados por régua */
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 2px solid var(--acao);
+}
+form { padding-top: 4px; }
+/* segue o estilo */
+.botoes button:first-child { transform: translateX(6px); }
+/* o principal sai do alinhamento de propósito */
+
+@media (max-width: 640px) {
+  .form-card { padding-left: 14px; }
+  .botoes button:first-child { transform: none; }
+}
+/* no celular tudo volta pra linha reta */

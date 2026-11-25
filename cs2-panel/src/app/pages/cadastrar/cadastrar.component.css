@@ -1,15 +1,42 @@
 .form-card {
-  max-width: 760px;
-  border-top: 3px solid var(--item);
-  padding-top: 16px;
+  max-width: 840px;
+  border-left: 8px solid var(--acao);
+  padding: 4px 0 4px 22px;
+/* formulário com régua grossa na esquerda */
 }
-/* segue o estilo */
-.campo { width: 100%; }
-.linha { display: flex; gap: 14px; flex-wrap: wrap; }
-/* formulário começa com um traço forte, como matéria de jornal */
+.campo { width: 100%; margin-bottom: 4px; }
+.linha { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+/* nome e time lado a lado no computador */
 
-.linha .campo { flex: 1 1 200px; }
-.erro { margin: -6px 0 10px; }
-.botoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--item); }
-form { padding-top: 8px; }
-/* os botões ficam numa faixa separada no fim */
+.erro {
+  margin: 0 0 10px;
+  border-left: 4px solid var(--acao);
+/* aviso colado na régua */
+  padding-left: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+/* o erro vira carimbo, não caixa colorida */
+
+.botoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+/* acoes embaixo de uma régua */
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 2px solid var(--acao);
+}
+.botoes button:first-child { transform: translateX(6px); }
+/* segue o estilo */
+form { padding-top: 4px; }
+/* o botao principal sai um pouco do lugar */
+
+@media (max-width: 640px) {
+  .linha { grid-template-columns: 1fr; }
+  .form-card { padding-left: 14px; }
+/* no celular os pares viram uma coluna */
+  .botoes button:first-child { transform: none; }
+}
+/* sem deslocamento na tela pequena */

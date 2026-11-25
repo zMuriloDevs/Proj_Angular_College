@@ -1,109 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 :root {
-  --fundo: #522A27;
-  --painel: #F78764;
-  --item: #C73E1D;
-  --texto: #225560;
-/* segue o estilo */
-  --realce: #EDF060;
+  --fundo: #0D2B26;
+  --painel: #F4F1E4;
+/* paleta fria: verde fundo e creme painel */
+  --acao: #1F5F53;
+  --texto: #123A33;
+  --realce: #A9E5C3;
 }
-/* paleta terrosa: fundo marrom, painel terracota, tinta azul escuro */
+/* botao em verde medio, menta so no destaque */
 
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: 'Archivo', Arial, sans-serif;
   background: var(--fundo);
-/* detalhe visual */
-  color: var(--texto);
+/* o fundo frio aparece só fora da folha creme */
+  color: var(--painel);
   font-size: 14px;
 }
-/* Archivo lê melhor nos textos longos e na tabela */
+/* Archivo segue nos textos corridos */
 
 h1, h2, h3 {
   font-family: 'Rubik', 'Archivo', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--texto);
   margin: 0 0 12px;
-/* detalhe simples */
+/* Rubik continua só nos titulos */
 }
-/* Rubik fica só nos títulos e nas manchetes */
+/* nada de caixa arredondada por aqui */
 
 .manchete {
   font-family: 'Rubik', 'Archivo', sans-serif;
-  font-size: 28px;
-  line-height: 1.1;
-  border-top: 3px solid var(--item);
-/* traço forte em cima, jeito de jornal */
-  border-bottom: 1px solid var(--item);
-  padding: 10px 0;
-  margin: 0 0 16px;
-}
-.subtitulo {
-/* mantive reto */
-  font-size: 11px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 0.88;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--item);
-  font-weight: 700;
-/* traco e texto */
-  margin: 0 0 16px;
+/* manchete agressiva, quase sem entrelinha */
+  letter-spacing: -0.05em;
+  border-top: 8px solid var(--acao);
+  padding: 12px 0 6px;
+  margin: 0 0 6px;
 }
-/* o subtitulo virou linha de apoio da manchete */
+/* o traço grosso substitui a moldura antiga */
+
+.subtitulo {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--acao);
+/* linha de apoio bem miuda e deslocada */
+  margin: 0 0 26px 6px;
+  font-weight: 700;
+}
+/* o titulo principal fica bem deslocado pra esquerda */
 
 .mat-mdc-card {
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-/* cards sem sombra e sem cantos de app */
+/* card limpo: sem sombra e sem canto redondo */
   border: 0;
+/* o painel creme faz o papel de folha */
 }
 .mat-mdc-card-content { padding: 0; }
 .mat-mdc-card-actions { padding: 12px 0 0; }
-/* o painel faz o papel de folha, o card só organiza o texto */
+/* o conteudo cola direto no painel */
 
 .mat-mdc-raised-button.mat-primary {
-  --mdc-filled-button-container-color: var(--item);
-  --mdc-filled-button-label-text-color: var(--realce);
+  --mdc-filled-button-container-color: var(--acao);
+  --mdc-filled-button-label-text-color: var(--painel);
+  --mdc-filled-button-container-shape: 0;
 }
+/* botao principal quadrado, Verde medio */
 .mat-mdc-stroked-button {
-/* ajuste rapido */
-  --mdc-outlined-button-outline-color: var(--item);
+  --mdc-outlined-button-outline-color: var(--acao);
   --mdc-outlined-button-label-text-color: var(--texto);
 }
-/* botão principal em tijolo, contorno na mesma tinta */
+/* contorno na mesma tinta dos botoes */
 
 .mat-mdc-icon-button { color: var(--texto); }
-.mat-mdc-icon-button.mat-warn { color: var(--item); }
-/* ícones discretos, só o excluir ganha o tijolo */
+.mat-mdc-icon-button.mat-warn { color: var(--acao); }
+/* icones discretos, excluir em verdeacao */
 
 .mat-mdc-form-field {
   --mat-form-field-container-text-color: var(--texto);
   --mat-form-field-label-text-color: var(--texto);
-  --mat-form-field-focus-label-text-color: var(--item);
-  --mdc-outlined-text-field-outline-color: var(--item);
-/* segue o estilo */
-  --mdc-outlined-text-field-focus-outline-color: var(--item);
+  --mat-form-field-focus-label-text-color: var(--acao);
+/* campos retos com tinta verde fria */
+  --mdc-outlined-text-field-outline-color: var(--acao);
+/* contorno verde, fundo leve */
+  --mdc-outlined-text-field-focus-outline-color: var(--fundo);
 }
-.mat-mdc-text-field-wrapper { background: rgba(255, 255, 255, 0.28); border-radius: 0; }
-/* campos retos, com um fundo clarinho pra separar do painel */
+.mat-mdc-text-field-wrapper {
+  background: rgba(18, 58, 51, 0.06);
+  border-radius: 0;
+/* segue o estilo */
+}
+/* o fundo do campo é so um leve tom sobre o creme */
 
 .tag {
   display: inline-block;
-  padding: 1px 7px;
-  border: 1px solid var(--item);
+  padding: 2px 8px;
+  border: 1px solid var(--acao);
+/* selo quadrado, nada de pilula */
   border-radius: 2px;
-/* selo quadradinho, nada de pílula colorida */
   color: var(--texto);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
+/* selo curto e caixa alta */
+  letter-spacing: 0.08em;
 }
-/* detalhe simples */
-.tag.sem-time { border-color: var(--texto); opacity: 0.75; }
-/* Sem time fica apagado, mas continua legível */
+.tag.sem-time { border-color: var(--texto); opacity: 0.65; }
+.tag.funcao { background: var(--realce); border-color: var(--fundo); }
+/* a funcao ganha o unico toque de menta na tabela */
 
-.erro, .mensagem { color: var(--item); font-weight: 700; font-size: 12px; }
+.erro, .mensagem { color: var(--acao); font-weight: 700; font-size: 11px; }
 .vazio { color: var(--texto); font-style: italic; }
 .cheio { width: 100%; }
 /* avisos curtos, sem caixinha colorida */

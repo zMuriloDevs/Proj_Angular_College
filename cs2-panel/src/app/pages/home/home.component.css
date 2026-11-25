@@ -1,68 +1,119 @@
 .blocos {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 0 42px;
+  align-items: start;
+/* duas colunas desiguais, sem simetria */
 }
-/* segue o estilo */
 .bloco {
-  border-right: 1px solid var(--item);
-  padding-right: 20px;
+  border-right: 2px solid var(--acao);
+  padding-right: 30px;
+/* régua grossa separando as colunas */
 }
-.bloco:last-child { border-right: 0; padding-right: 0; }
-/* duas colunas, com uma régua fina separando */
+.bloco:last-child {
+  border-right: 0;
+  padding-right: 0;
+  transform: translateY(18px);
+/* segue o estilo */
+}
+/* a coluna da direita desce um pouco */
 
 .nome {
   font-family: 'Rubik', 'Archivo', sans-serif;
-  font-size: 26px;
-  line-height: 1.1;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 0.9;
   margin: 0;
-/* detalhe simples */
+/* o nick virou manchete da coluna */
+  word-break: break-word;
   color: var(--texto);
 }
+.nome { text-transform: uppercase; letter-spacing: -0.04em; }
+/* caixa alta fechada, bem de cartaz */
+
 .detalhe {
-  color: var(--item);
-  font-size: 11px;
-/* mantive reto */
+  color: var(--acao);
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin: 4px 0 12px;
+  letter-spacing: 0.14em;
+/* time e função em carimbo */
+  border-bottom: 1px solid var(--acao);
+  padding-bottom: 8px;
+  margin: 8px 0 0;
 }
-/* o nome é manchete, o time e a função viram linha de apoio */
+/* o carimbo corta logo abaixo do nick */
 
 .numeros {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--item);
-  border-bottom: 1px solid var(--item);
-/* traco e texto */
+  border-top: 6px solid var(--fundo);
+  border-bottom: 2px solid var(--acao);
+/* quatro celulas com tracos fortes */
+  margin-top: 20px;
 }
-.numeros div { padding: 10px 8px; border-right: 1px solid var(--item); }
+.numeros div { padding: 12px 8px; border-right: 2px solid var(--acao); }
 .numeros div:last-child { border-right: 0; }
-/* quatro colunas de números, separadas por traços */
+/* as celulas ficam separadas por régua */
 
-.numeros span { display: block; font-size: 10px; text-transform: uppercase; color: var(--item); }
-.numeros strong { font-family: 'Rubik', 'Archivo', sans-serif; font-size: 20px; color: var(--texto); }
-.regra { font-size: 11px; font-style: italic; margin: 10px 0 0; }
-/* a regra da pontuação fica em nota de rodapé */
+.numeros span {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+/* rotulo miudo em caixa alta */
+  color: var(--acao);
+}
+.numeros strong {
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 26px;
+/* detalhe simples */
+  color: var(--texto);
+}
+/* numero grande em Rubik */
+
+.pontos { background: var(--fundo); }
+.pontos span, .pontos strong { color: var(--realce); }
+/* so a pontuação inverte para menta */
+
+.regra {
+  font-size: 10px;
+  font-style: italic;
+  border-left: 4px solid var(--acao);
+/* nota de rodapé com traço lateral */
+  padding-left: 10px;
+  margin: 14px 0 0;
+}
+/* a regra da conta fica como nota solta */
 
 h3 {
   font-family: 'Rubik', 'Archivo', sans-serif;
-  font-size: 15px;
-  border-bottom: 1px solid var(--item);
-  padding-bottom: 6px;
-/* ajuste rapido */
-  margin: 16px 0 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+/* subtitulo de secao em caixa alta */
+  border-left: 6px solid var(--acao);
+  padding-left: 10px;
+  margin: 22px 0 10px;
 }
-.valor { font-family: 'Rubik', 'Archivo', sans-serif; font-weight: 700; color: var(--item); margin: 4px 0; }
-.jogadores { font-size: 12px; margin: 0 0 12px; }
-/* cada time em destaque ganha um subtítulo de seção */
+/* cada time entra como uma secao da pagina */
 
-.acao { margin-top: 8px; }
+.valor {
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 24px;
+  color: var(--acao);
+  margin: 6px 0;
+/* mantive reto */
+}
+.jogadores { font-size: 13px; margin: 0 0 14px; }
+/* os destaques de time ficam curtos */
+
+.acao { margin-top: 12px; transform: rotate(-1deg); transform-origin: left; }
 .vazio { color: var(--texto); }
+/* botão levemente torto, jeito de recorte */
+
 @media (max-width: 760px) {
   .blocos { grid-template-columns: 1fr; }
-  .bloco { border-right: 0; border-bottom: 1px solid var(--item); padding: 0 0 18px; }
-/* segue o estilo */
+  .bloco { border-right: 0; padding-right: 0; }
+/* no celular as colunas empilham */
+  .bloco:last-child { transform: none; }
   .numeros { grid-template-columns: repeat(2, 1fr); }
 }
-/* no celular as colunas empilham, mantendo as regras */
+/* a régua e o deslocamento somem no mobile */

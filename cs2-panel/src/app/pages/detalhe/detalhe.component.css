@@ -1,23 +1,94 @@
-.detalhe { max-width: 760px; }
+.detalhe { max-width: 840px; margin-left: -6px; }
+.detalhe mat-card-title {
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+/* o nick da ficha virou manchete */
+  text-transform: uppercase;
+/* caixa alta bem fechada */
+  line-height: 0.9;
+}
+/* o titulo encosta na borda da folha */
+
+.detalhe mat-card-subtitle {
+  color: var(--acao);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+/* time e função viraram carimbo */
+}
+/* linha de apoio bem miuda */
+
 .grade {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  border-top: 1px solid var(--item);
-/* segue o estilo */
-  border-bottom: 1px solid var(--item);
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 6px solid var(--fundo);
+  border-bottom: 2px solid var(--acao);
+/* ficha em quatro celulas duras */
+  margin-top: 24px;
 }
-/* ficha em colunas, separada por regras horizontais */
+/* a régua de cima é bem mais grossa */
 
-.caixa { padding: 14px 10px; border-right: 1px solid var(--item); text-align: center; }
+.caixa {
+  padding: 20px 8px;
+  border-right: 2px solid var(--acao);
+  text-align: center;
+/* celulas separadas por régua */
+}
 .caixa:last-child { border-right: 0; }
-.rotulo { display: block; color: var(--item); font-size: 10px; text-transform: uppercase; margin-bottom: 6px; }
-.caixa strong { font-family: 'Rubik', 'Archivo', sans-serif; font-size: 22px; color: var(--texto); }
-/* rótulo miúdo e número grande em Rubik */
+.caixa:nth-child(2) { background: var(--realce); }
+/* só kills inverte para menta */
 
-.caixa.destaque { background: var(--item); }
+.rotulo {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+/* rotulo miudo e espacado */
+  color: var(--acao);
+}
+.caixa strong {
+  display: block;
+  font-family: 'Rubik', 'Archivo', sans-serif;
+/* segue o estilo */
+  font-size: 32px;
+/* numero grande em Rubik */
+  color: var(--texto);
+/* tinta escura sobre creme */
+  margin-top: 6px;
+}
+/* o numero manda na ficha */
+
+.caixa.destaque { background: var(--fundo); }
 .caixa.destaque .rotulo, .caixa.destaque strong { color: var(--realce); }
-.explicacao { font-size: 12px; font-style: italic; margin-top: 14px; }
-/* só o K/D ganha fundo escuro, com texto claro */
+/* o K/D inverte e vira o ponto focal */
 
-mat-card-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 0 0 !important; border-top: 1px solid var(--item); }
-/* botões embaixo da ficha, com um traço em cima */
+.explicacao {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+/* nota curta embaixo da ficha */
+  border-left: 4px solid var(--acao);
+  padding-left: 10px;
+  margin-top: 16px;
+}
+/* a explicação fica como legenda */
+
+mat-card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+/* botoes em faixa separada */
+  padding: 16px 0 0 !important;
+  border-top: 2px solid var(--acao);
+  margin-top: 18px;
+}
+/* a faixa de acoes corta a ficha */
+
+@media (max-width: 640px) {
+  .grade { grid-template-columns: repeat(2, 1fr); }
+  .detalhe { margin-left: 0; }
+/* no celular a ficha volta pra coluna */
+  .caixa:nth-child(2) { background: transparent; }
+}
+/* sem inversão no celular pra facilitar leitura */
