@@ -2,7 +2,6 @@ export interface Time {
   id?: number;
   nome: string;
   coach: string;
-// O time tem nome e coach, que são campos de texto obrigatórios.
-  jogadores: number[];
+// um time é só nome e coach mesmo
 }
-// Guardo só os ids dos 5 jogadores para não duplicar dados.
+// quem tá no time é quem tem o timeId igual ao id dele

@@ -2,12 +2,12 @@ export interface Jogador {
   id?: number;
   nickname: string;
   funcao: string;
-  time: string;
-// Descrevo o jogador; o id é opcional porque quem cria é o backend.
+  timeId: number | null;
+// o vínculo é um id ou null, nada de texto solto
   mapas: number;
   kills: number;
   deaths: number;
   posicao?: number;
-// A posição só aparece no ranking e não precisa ser salva.
+// posição só aparece no ranking, não é salva
 }
-// Kills e deaths são usados para calcular o K/D em várias telas.
+// o id quem cria é o backend; K/D sai de kills e deaths

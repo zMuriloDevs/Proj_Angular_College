@@ -1,65 +1,68 @@
 <h1>{{ editando ? 'Editar jogador' : 'Cadastrar jogador' }}</h1>
-<p class="subtitulo">Preencha os dados do jogador e salve no servidor.</p>
+<p class="subtitulo">Preencha os dados do jogador e escolha o time, se quiser.</p>
 <mat-card class="form-card">
   <mat-card-content>
     <form (ngSubmit)="salvar()" #form="ngForm">
-  <!-- O título muda na edição e o formulário chama salvar ao enviar. -->
+<!-- segue o markup -->
       <mat-form-field appearance="outline" class="campo">
         <mat-label>Nickname</mat-label>
         <input matInput name="nickname" [(ngModel)]="jogador.nickname" required>
       </mat-form-field>
       <p class="erro" *ngIf="mensagem">{{ mensagem }}</p>
-  <!-- O ngModel liga cada campo à variável jogador do componente. -->
+<!-- o aviso de erro aparece em cima, antes dos outros campos -->
       <div class="linha">
         <mat-form-field appearance="outline" class="campo">
           <mat-label>Função</mat-label>
           <mat-select name="funcao" [(ngModel)]="jogador.funcao">
             <mat-option value="AWPer">AWPer</mat-option>
-  <!-- As funções são as mesmas usadas no filtro do ranking. -->
+<!-- pedaço da tela -->
             <mat-option value="Rifler">Rifler</mat-option>
             <mat-option value="IGL">IGL</mat-option>
             <mat-option value="Entry">Entry</mat-option>
           </mat-select>
         </mat-form-field>
-  <!-- Fecho o select e abro o campo de nome do time. -->
+<!-- as funções são as mesmas do filtro do ranking -->
         <mat-form-field appearance="outline" class="campo">
           <mat-label>Time</mat-label>
-          <input matInput name="time" [(ngModel)]="jogador.time">
+          <mat-select name="timeId" [(ngModel)]="jogador.timeId">
+            <mat-option [value]="null">Sem time</mat-option>
+            <mat-option *ngFor="let t of timesDisponiveis()" [value]="t.id">
+<!-- continuo aqui -->
+              {{ t.nome }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
-  <!-- Função e time ficam lado a lado no computador. -->
+<!-- só aparecem os times com vaga, mais o time atual na edição -->
       <div class="linha">
         <mat-form-field appearance="outline" class="campo">
           <mat-label>Mapas</mat-label>
           <input matInput type="number" min="0" name="mapas" [(ngModel)]="jogador.mapas">
         </mat-form-field>
-  <!-- Mapas, kills e deaths são números com valor mínimo zero. -->
+<!-- parte simples -->
         <mat-form-field appearance="outline" class="campo">
           <mat-label>Kills</mat-label>
           <input matInput type="number" min="0" name="kills" [(ngModel)]="jogador.kills">
         </mat-form-field>
       </div>
-  <!-- Abro uma linha só para o campo de deaths. -->
+<!-- mapas e kills ficam lado a lado no computador -->
       <div class="linha">
-  <!-- Deaths fica sozinho nesta linha para manter o formulário simples. -->
         <mat-form-field appearance="outline" class="campo">
           <mat-label>Deaths</mat-label>
           <input matInput type="number" min="0" name="deaths" [(ngModel)]="jogador.deaths">
         </mat-form-field>
+<!-- segue o bloco -->
       </div>
-  <!-- Terminei os números e abro a área dos botões. -->
       <div class="botoes">
-  <!-- Terminei os números e agora vêm os botões de salvar e cancelar. -->
         <button mat-raised-button color="primary" type="submit">
           <mat-icon>save</mat-icon> {{ editando ? 'Salvar alterações' : 'Cadastrar' }}
         </button>
+<!-- segue o markup -->
         <button mat-stroked-button type="button" (click)="voltar()">
           <mat-icon>arrow_back</mat-icon> Cancelar
-  <!-- Cancelar volta ao ranking sem salvar. -->
         </button>
       </div>
+<!-- salvar grava no back; cancelar volta sem mudar nada -->
     </form>
-  <!-- O botão salva e o cancelar volta ao ranking sem gravar. -->
   </mat-card-content>
 </mat-card>
-<!-- Fecho o card do formulário de cadastro e edição. -->

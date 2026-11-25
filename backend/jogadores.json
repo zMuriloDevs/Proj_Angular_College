@@ -1,47 +1,29 @@
 [
   {
     "id": 1,
-    "nickname": "s1mple",
-    "funcao": "AWPer",
-    "time": "NAVI",
-    "mapas": 42,
-    "kills": 1180,
-    "deaths": 620
+    "nickname": "FalleN",
+    "funcao": "IGL",
+    "timeId": 1,
+    "mapas": 46,
+    "kills": 1020,
+    "deaths": 634
   },
   {
     "id": 2,
-    "nickname": "donk",
-    "funcao": "Entry",
-    "time": "Team Spirit",
-    "mapas": 38,
-    "kills": 1050,
-    "deaths": 590
+    "nickname": "yurrih",
+    "funcao": "Rifler",
+    "timeId": 1,
+    "mapas": 45,
+    "kills": 675,
+    "deaths": 542
   },
   {
     "id": 3,
-    "nickname": "ZywOo",
+    "nickname": "wonderful",
     "funcao": "AWPer",
-    "time": "Vitality",
-    "mapas": 45,
-    "kills": 1240,
-    "deaths": 680
-  },
-  {
-    "id": 4,
-    "nickname": "rain",
-    "funcao": "Rifler",
-    "time": "FaZe",
-    "mapas": 36,
-    "kills": 890,
-    "deaths": 640
-  },
-  {
-    "id": 5,
-    "nickname": "boaster",
-    "funcao": "IGL",
-    "time": "Fnatic",
-    "mapas": 40,
-    "kills": 720,
-    "deaths": 690
+    "timeId": 2,
+    "mapas": 90,
+    "kills": 503,
+    "deaths": 390
   }
 ]

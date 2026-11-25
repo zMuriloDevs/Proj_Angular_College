@@ -1,45 +1,30 @@
 <h1>{{ editando ? 'Editar time' : 'Cadastrar time' }}</h1>
-<p class="subtitulo">Escolha um nome, um coach e exatamente 5 jogadores.</p>
+<p class="subtitulo">Só nome e coach. Os jogadores entram depois.</p>
 <mat-card class="form-card">
   <mat-card-content>
     <form (ngSubmit)="salvar()" #form="ngForm">
-  <!-- O título muda na edição e o envio chama o método salvar. -->
+<!-- segue o markup -->
       <mat-form-field appearance="outline" class="campo">
         <mat-label>Nome do time</mat-label>
         <input matInput name="nome" [(ngModel)]="time.nome" required>
       </mat-form-field>
       <mat-form-field appearance="outline" class="campo">
-  <!-- Nome do time e coach são campos de texto obrigatórios. -->
+<!-- pedaço da tela -->
         <mat-label>Coach</mat-label>
         <input matInput name="coach" [(ngModel)]="time.coach" required>
       </mat-form-field>
+<!-- os dois únicos campos do cadastro de time -->
       <p class="erro" *ngIf="mensagem">{{ mensagem }}</p>
-  <!-- O aviso aparece se faltar algum dado ou se um jogador repetir. -->
-      <div class="linha" *ngFor="let i of numeros">
-        <mat-form-field appearance="outline" class="campo">
-          <mat-label>Jogador {{ i + 1 }}</mat-label>
-          <mat-select name="jogador{{i}}" [(ngModel)]="time.jogadores[i]">
-            <mat-option [value]="0">-- escolha --</mat-option>
-  <!-- Cada select representa uma vaga e repete a lista de jogadores. -->
-            <mat-option *ngFor="let j of jogadores" [value]="j.id">
-              {{ j.nickname }} ({{ j.time }})
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-  <!-- Fecho a última vaga antes dos botões. -->
-      </div>
       <div class="botoes">
-  <!-- Terminei as cinco vagas e agora vêm os botões de salvar e cancelar. -->
         <button mat-raised-button color="primary" type="submit">
           <mat-icon>save</mat-icon> {{ editando ? 'Salvar alterações' : 'Cadastrar time' }}
         </button>
+<!-- continuo aqui -->
         <button mat-stroked-button type="button" (click)="voltar()">
           <mat-icon>arrow_back</mat-icon> Cancelar
-  <!-- O Cancelar volta à lista de times sem gravar. -->
         </button>
       </div>
+<!-- salvar grava e cancelar volta pra lista -->
     </form>
-  <!-- Salvar grava no backend; cancelar volta sem alterar nada. -->
   </mat-card-content>
 </mat-card>
-<!-- Fecho o card do formulário de times. -->
