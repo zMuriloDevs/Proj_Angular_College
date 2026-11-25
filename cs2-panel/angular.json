@@ -18,7 +18,9 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [],
+            "assets": [
+              { "glob": "**/*", "input": "src/logo", "output": "logo" }
+            ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"

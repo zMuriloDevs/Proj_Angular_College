@@ -1,22 +1,43 @@
-.menu {
-  display: flex;
-  align-items: center;
+.menu.mat-mdc-toolbar {
+  background: var(--chocolate) !important;
+  color: #fff !important;
+  border-radius: 0 0 22px 22px;
   gap: 8px;
+/* ajuste rápido */
   flex-wrap: wrap;
-/* O menu usa flex e quebra linha quando a tela do celular é pequena. */
+  min-height: 64px;
 }
-.titulo { font-weight: bold; }
+/* menu marrom, cantos arredondados e link quebrando no celular */
+
+.logo { height: 38px; width: auto; border-radius: 10px; margin-right: 8px; }
+.titulo { font-weight: 800; font-size: 20px; }
 .espaco { flex: 1 1 auto; }
-.ativo { background: rgba(255, 255, 255, 0.18); }
+/* logo do site do ladinho do nome */
+.menu a { border-radius: 999px; }
+/* links em pílula, o espaço empurra o grupo pro lado */
+
+.menu .ativo {
+  background: var(--lime) !important;
+  color: var(--chocolate) !important;
+}
+.menu .ativo .mat-icon { color: var(--chocolate) !important; }
+/* o link da página aberta ganha o amarelo bem vivo */
+
 .conteudo {
-/* O espaço entre os links empurra o menu para a direita no computador. */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 16px 40px;
+  max-width: 1180px;
+  margin: 16px auto 28px;
+  padding: 24px;
+  background: var(--claro);
+/* detalhe visual */
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
+/* o conteúdo fica num painel clarinho em cima do fundo azul */
+
 @media (max-width: 520px) {
-/* Limito a largura do conteúdo e deixo uma margem nas laterais. */
-  .conteudo { padding: 12px 8px 30px; }
-  .titulo { font-size: 16px; }
+  .conteudo { padding: 14px; margin: 10px; border-radius: 18px; }
+  .titulo { font-size: 17px; }
+  .logo { height: 30px; }
+  .menu { gap: 2px; }
 }
-/* Em telas pequenas diminuo o espaçamento e o tamanho do título. */
+/* no celular eu aperto tudo um pouco pra caber */

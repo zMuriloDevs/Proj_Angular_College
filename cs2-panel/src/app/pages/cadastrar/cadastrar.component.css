@@ -1,10 +1,11 @@
-.subtitulo { color: #6b7280; margin-bottom: 18px; }
+.subtitulo { color: #6d4b46; margin-bottom: 18px; }
 .form-card { max-width: 760px; }
 .campo { width: 100%; }
 .linha { display: flex; gap: 14px; flex-wrap: wrap; }
 .linha .campo { flex: 1 1 200px; }
-/* Cada campo ocupa a largura toda e a linha quebra no celular. */
-.erro { color: #c62828; font-size: 13px; margin: -6px 0 10px; }
+/* cada campo ocupa a largura e a linha quebra no celular */
+
+.erro { color: var(--forge); font-size: 13px; margin: -6px 0 10px; }
 .botoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
 form { padding-top: 8px; }
-/* Deixo os botões lado a lado e o aviso de erro na cor vermelha. */
+/* aviso laranja e botões lado a lado */

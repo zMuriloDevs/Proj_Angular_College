@@ -1,10 +1,14 @@
-.subtitulo { color: #6b7280; margin-bottom: 14px; }
+.subtitulo { color: #6d4b46; margin-bottom: 14px; }
 .acao { margin-bottom: 16px; }
 .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
 .time-card h2 { margin: 0 0 6px; font-size: 20px; }
-/* A grade acomoda os cards sozinha conforme a largura da tela. */
-.coach { color: #374151; margin: 0 0 10px; }
-.jogadores { color: #6b7280; font-size: 13px; margin: 0; }
-.quantidade { color: #2e7d32; font-size: 12px; margin: 6px 0 0; }
-.vazio { color: #6b7280; margin-top: 14px; }
-/* O texto verde lembra que o time tem os 5 jogadores obrigatórios. */
+/* grade de cards que se acomoda conforme a tela */
+
+.time-card { background: var(--coral) !important; }
+.coach { color: var(--chocolate); margin: 0 0 10px; }
+.jogadores { color: var(--chocolate); font-size: 13px; margin: 0; }
+.quantidade { color: var(--forge); font-weight: 800; font-size: 12px; margin: 6px 0 0; }
+/* card coral com coach, jogadores e a contagem de vagas */
+
+.vazio { color: #6d4b46; margin-top: 14px; }
+/* quando não tem time, aparece só esse aviso */

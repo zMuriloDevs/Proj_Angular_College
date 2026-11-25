@@ -1,24 +1,36 @@
 .blocos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
 .bloco h2 { display: flex; align-items: center; gap: 8px; font-size: 20px; }
-.destaque { margin-bottom: 12px; }
-/* A grade cria dois blocos lado a lado e quebra no celular. */
-.nome { font-size: 24px; font-weight: 700; margin: 0; color: #1f2937; }
-.detalhe { color: #6b7280; margin: 4px 0 14px; }
+.destaque {
+  background: var(--coral);
+  border-radius: 20px;
+/* ajuste rápido */
+  margin-bottom: 12px;
+}
+/* dois blocos lado a lado; o card de destaque vira coral */
+
+.nome { font-size: 24px; font-weight: 800; margin: 0; color: var(--chocolate); }
+.detalhe { color: #6d4b46; margin: 4px 0 14px; }
 .numeros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-/* Os números do jogador ficam em quatro caixinhas. */
-.numeros div { background: #f4f6fa; border-radius: 8px; padding: 10px; text-align: center; }
-.numeros span { display: block; font-size: 12px; color: #6b7280; }
-.numeros strong { font-size: 20px; color: #2563eb; }
-.regra { font-size: 12px; color: #6b7280; margin: 14px 0 0; }
-/* A regra matemática aparece em texto pequeno dentro do card. */
-h3 { font-size: 15px; margin: 0 0 8px; color: #374151; }
-.valor { font-weight: 700; color: #2e7d32; margin: 4px 0; }
-.jogadores { color: #6b7280; font-size: 13px; margin: 0 0 16px; }
+/* quatro caixinhas com os números do cálculo */
+
+.numeros div { background: var(--claro); border-radius: 14px; padding: 10px; text-align: center; }
+.numeros span { display: block; font-size: 12px; color: #6d4b46; }
+.numeros strong { font-size: 20px; color: var(--forge); }
+.numeros .pontos { background: var(--chocolate); }
+.numeros .pontos span, .numeros .pontos strong { color: var(--lime); }
+/* a pontuação vem em amarelo sobre marrom, bem chamativo */
+
+.regra { font-size: 12px; color: #6d4b46; margin: 14px 0 0; }
+h3 { font-size: 15px; margin: 0 0 8px; color: var(--chocolate); }
+.valor { font-weight: 800; color: var(--forge); margin: 4px 0; }
+.jogadores { color: #6d4b46; font-size: 13px; margin: 0 0 16px; }
+/* os dois destaques de time seguem o mesmo estilo */
+
 .acao { margin-top: 4px; }
-/* Cada time em destaque mostra coach, total ou média e os 5 nicks. */
-.vazio { color: #6b7280; }
+.vazio { color: #6d4b46; }
 @media (max-width: 520px) {
   .bloco h2 { font-size: 18px; }
   .nome { font-size: 20px; }
+/* detalhe visual */
 }
-/* No celular eu reduzo os títulos para economizar espaço. */
+/* no celular os títulos encolhem um pouco */

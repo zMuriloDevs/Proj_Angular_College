@@ -1,28 +1,35 @@
-.subtitulo { color: #6b7280; margin-bottom: 16px; }
+.subtitulo { color: #6d4b46; margin-bottom: 16px; }
 .filtros { margin-bottom: 16px; }
 .linha-filtros { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .campo-busca { flex: 2 1 260px; }
 .campo-filtro { flex: 1 1 160px; }
-/* A linha de filtros quebra em várias linhas no celular. */
-.mensagem { color: #1565c0; font-size: 13px; margin: 6px 0 0; }
+/* os filtros quebram linha sozinhos no celular */
+
+.mensagem { color: var(--forge); font-size: 13px; margin: 6px 0 0; }
 .tabela-card { padding: 8px; }
 .tabela-wrapper { overflow-x: auto; }
 .tabela { width: 100%; min-width: 820px; }
-/* A tabela larga rola para o lado sem bagunçar a página. */
-.posicao { font-weight: 700; color: #2563eb; width: 40px; }
-.kd-destaque { font-weight: 700; color: #2e7d32; }
-mat-header-cell { font-weight: 700; color: #374151; }
+/* a tabela larga rola pra lado sem bagunçar a página */
+
+.tabela .mat-mdc-header-row { background: var(--coral); }
+.tabela mat-header-cell { font-weight: 800; color: var(--chocolate); }
+.tabela .mat-mdc-row:nth-child(even) { background: rgba(247, 135, 100, 0.2); }
+/* cabeçalho coral e linhas alternadas bem leves */
+
+.posicao { font-weight: 800; color: var(--forge); width: 40px; }
+.kd-destaque { font-weight: 800; color: var(--forge); }
 mat-cell, mat-header-cell { padding-right: 10px; }
-/* A posição fica azul e o K/D verde para chamar atenção. */
-.vazio { color: #6b7280; text-align: center; padding: 18px; }
-.nota { color: #6b7280; font-size: 12px; margin-top: 14px; }
-.opcoes { margin-top: 12px; color: #9ca3af; font-size: 12px; }
-/* details deixa o Reset escondido até o usuário abrir. */
+/* posição e K/D em laranja, iguais aos destaques */
+
+.vazio { color: #6d4b46; text-align: center; padding: 18px; }
+.nota { color: #6d4b46; font-size: 12px; margin-top: 14px; }
+.opcoes { margin-top: 12px; color: #6d4b46; font-size: 12px; }
 .opcoes summary { cursor: pointer; padding: 4px 0; }
+/* Reset segue escondido no details, só a cor mudou */
+
 .opcoes .reset { font-size: 11px; min-width: 0; }
 @media (max-width: 520px) {
   .subtitulo { font-size: 13px; }
   .nota { font-size: 11px; }
-/* Fecho a media query das telas pequenas. */
 }
-/* No celular eu reduzo os textos de apoio para economizar espaço. */
+/* telas pequenas com textos de apoio menores */

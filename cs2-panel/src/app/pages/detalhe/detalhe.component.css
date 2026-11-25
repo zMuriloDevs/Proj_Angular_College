@@ -1,9 +1,20 @@
 .detalhe { max-width: 760px; }
 .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
-.caixa { background: #f4f6fa; border-radius: 8px; padding: 14px; text-align: center; }
-.rotulo { display: block; color: #6b7280; font-size: 12px; margin-bottom: 6px; }
-/* A grade cria caixas que se acomodam sozinhas no celular. */
-.caixa strong { font-size: 22px; color: #1f2937; }
-.explicacao { color: #6b7280; font-size: 13px; margin-top: 16px; }
+.caixa {
+  background: var(--coral);
+  border-radius: 16px;
+/* ajuste rápido */
+  padding: 14px;
+  text-align: center;
+}
+/* caixas coral que se acomodam sozinhas no celular */
+
+.rotulo { display: block; color: var(--chocolate); font-size: 12px; margin-bottom: 6px; }
+.caixa strong { font-size: 22px; color: var(--chocolate); }
+.caixa.destaque { background: var(--chocolate); }
+.caixa.destaque .rotulo, .caixa.destaque strong { color: var(--lime); }
+/* o K/D fica em amarelo sobre marrom */
+
+.explicacao { color: #6d4b46; font-size: 13px; margin-top: 16px; }
 mat-card-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 12px; }
-/* Os números ficam grandes e os botões quebram linha se precisar. */
+/* embaixo os botões quebram linha se precisar */
