@@ -3,10 +3,11 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
-// Aqui eu ligo as rotas e o HttpClient para o projeto inteiro usar.
+// segue o fluxo
   providers: [
     provideRouter(routes),
     provideHttpClient()
   ]
+// liguei as rotas e o HttpClient, o resto os services resolvem
 };
-// Sem essas duas linhas as rotas e o nosso service não funcionariam.
+// sem essas duas linhas nada de rotas ou chamada na API

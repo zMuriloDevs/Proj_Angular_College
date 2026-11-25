@@ -3,4 +3,4 @@ import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
 bootstrapApplication(AppComponent, appConfig)
   .catch((erro) => console.error(erro));
-// Esse é o arquivo de entrada: ele liga o app usando a nossa configuração.
+// arquivo de entrada: é aqui que o app acorda

@@ -1,25 +1,26 @@
 <mat-toolbar color="primary" class="menu">
-  <mat-icon>sports_esports</mat-icon>
+  <img src="logo/Logo_EcoStats.jpg" alt="Logo da EcoStats" class="logo">
   <span class="titulo">{{ titulo }}</span>
   <span class="espaco"></span>
   <a mat-button routerLink="/home" routerLinkActive="ativo">
-  <!-- O menu tem quatro links e o ativo fica com outra cor. -->
+<!-- segue o markup -->
     <mat-icon>home</mat-icon> Início
   </a>
+<!-- o ativo é pintado de amarelo pelo css -->
   <a mat-button routerLink="/stats" routerLinkActive="ativo">
     <mat-icon>bar_chart</mat-icon> Estatísticas
   </a>
-  <!-- Times é o terceiro link do menu. -->
   <a mat-button routerLink="/times" routerLinkActive="ativo">
-  <!-- Times abre a lista; Novo jogador abre o cadastro manual. -->
     <mat-icon>groups</mat-icon> Times
+<!-- pedaço da tela -->
   </a>
+<!-- quarto link leva ao cadastro de jogador -->
   <a mat-button routerLink="/novo" routerLinkActive="ativo">
     <mat-icon>person_add</mat-icon> Novo jogador
   </a>
-  <!-- O routerLinkActive destaca o link da página aberta no momento. -->
 </mat-toolbar>
 <main class="conteudo">
+<!-- continuo aqui -->
   <router-outlet></router-outlet>
 </main>
-<!-- O router-outlet é onde cada rota desenha o seu componente. -->
+<!-- cada rota desenha a página dentro desse painel -->

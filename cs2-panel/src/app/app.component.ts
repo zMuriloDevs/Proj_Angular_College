@@ -2,20 +2,20 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
+// toolbar, botões e ícones do menu
 import { MatButtonModule } from '@angular/material/button';
-// Importo toolbar, botões e ícones para montar o menu principal.
 import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-root',
   standalone: true,
+// a casca do site é standalone mesmo
   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive,
-// Declaro os módulos que o menu e o router-outlet precisam usar.
             MatToolbarModule, MatButtonModule, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
+// menu em cima, conteúdo trocável embaixo
 })
-// Esse componente é a casca do site: menu de cima e conteúdo trocável.
 export class AppComponent {
-  titulo = 'CS2 Stats';
+  titulo = 'EcoStats';
 }
-// O título aparece no canto esquerdo do toolbar.
+// o título fica no canto esquerdo do toolbar

@@ -3,28 +3,29 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Time } from '../models/time.model';
 @Injectable({ providedIn: 'root' })
-// Esse service concentra as chamadas HTTP do banco de times.
+// service dos times, disponível em qualquer página
 export class TimeService {
   private api = 'http://localhost:3000/times';
   constructor(private http: HttpClient) {}
   listar(): Observable<Time[]> {
     return this.http.get<Time[]>(this.api);
-// O GET traz a lista de times cadastrados no backend.
+// o GET traz os times cadastrados
   }
   buscarPorId(id: number): Observable<Time> {
     return this.http.get<Time>(`${this.api}/${id}`);
   }
   criar(time: Time): Observable<Time> {
-// O GET com id carrega um time; o POST cria um time novo.
+// segue o fluxo
     return this.http.post<Time>(this.api, time);
+// com id eu carrego um time; sem id eu crio
   }
   atualizar(id: number, time: Time): Observable<Time> {
     return this.http.put<Time>(`${this.api}/${id}`, time);
   }
-// O DELETE remove um time do banco.
   excluir(id: number): Observable<any> {
-// Com o PUT eu edito e com o DELETE eu apago um time.
+// aqui eu trato o que veio
     return this.http.delete(`${this.api}/${id}`);
+// PUT edita nome/coach e DELETE apaga o time
   }
 }
-// Cada método devolve um Observable simples para o componente usar.
+// nada de RxJS complicado, só Observable e .subscribe()
