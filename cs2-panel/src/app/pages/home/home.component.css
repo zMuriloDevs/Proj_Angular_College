@@ -88,7 +88,7 @@ h3 {
   font-family: 'Rubik', 'Archivo', sans-serif;
   font-size: 18px;
   text-transform: uppercase;
-/* subtitulo de secao em caixa alta */
+/* titulo de secao em caixa alta */
   border-left: 6px solid var(--acao);
   padding-left: 10px;
   margin: 22px 0 10px;

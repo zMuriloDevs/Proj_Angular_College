@@ -11,8 +11,8 @@
   max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: auto 1fr auto;
-/* logo, titulo e carimbo em tres colunas */
+  grid-template-columns: auto 1fr;
+/* logo e titulo em duas colunas */
   gap: 22px;
   align-items: end;
   padding: 18px 20px 10px;
@@ -34,39 +34,13 @@
 }
 /* o nome do site virou manchete, não etiqueta */
 
-.masthead-lado {
-  border-left: 1px solid var(--realce);
-  padding-left: 14px;
-  color: var(--painel);
-/* carimbo lateral com dados curtos */
-  font-size: 10px;
-  line-height: 1.6;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-/* a lateral quebra a simetria do cabecalho */
-
-.ticker {
-  background: var(--acao);
-  color: var(--painel);
-  overflow: hidden;
-  white-space: nowrap;
-/* faixa continua, sem animação pra não distrair */
-  padding: 6px 20px;
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-/* dados passando antes do menu */
-.ticker span { margin-right: 10px; }
-
 .menu {
   max-width: 1180px;
   margin: 0 auto;
   display: flex;
 /* detalhe simples */
   flex-wrap: wrap;
-/* menu reto, colado na faixa de dados */
+/* menu reto, logo abaixo do cabecalho */
   border-top: 1px solid var(--realce);
 }
 .menu a {
@@ -114,9 +88,8 @@
 
 @media (max-width: 760px) {
   .masthead-topo { grid-template-columns: auto 1fr; }
-  .masthead-lado { display: none; }
   .masthead-titulo { font-size: 40px; }
-/* no celular o titulo encolhe e o carimbo sai */
+/* no celular o titulo encolhe */
   .conteudo { margin: 14px; padding: 24px 18px 32px; clip-path: none; }
 }
 /* a folha volta a ser retangulo na tela pequena */

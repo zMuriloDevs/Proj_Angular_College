@@ -42,17 +42,6 @@ h1, h2, h3 {
 }
 /* o traço grosso substitui a moldura antiga */
 
-.subtitulo {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--acao);
-/* linha de apoio bem miuda e deslocada */
-  margin: 0 0 26px 6px;
-  font-weight: 700;
-}
-/* o titulo principal fica bem deslocado pra esquerda */
-
 .mat-mdc-card {
   background: transparent !important;
   border-radius: 0 !important;

@@ -10,15 +10,6 @@
 }
 /* o titulo encosta na borda da folha */
 
-.detalhe mat-card-subtitle {
-  color: var(--acao);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-/* time e função viraram carimbo */
-}
-/* linha de apoio bem miuda */
-
 .grade {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
