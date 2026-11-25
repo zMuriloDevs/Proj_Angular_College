@@ -17,15 +17,8 @@ const backupTimes = path.join(__dirname, 'times-anterior.json');
 const marcador = path.join(__dirname, 'ultima-alteracao.txt');
 // backups do desfazer e um marcador dizendo qual banco mudou por último
 
-const jogadoresIniciais = [
-  { id: 1, nickname: 's1mple', funcao: 'AWPer', timeId: null, mapas: 42, kills: 1180, deaths: 620 },
-  { id: 2, nickname: 'donk', funcao: 'Entry', timeId: null, mapas: 38, kills: 1050, deaths: 590 },
-  { id: 3, nickname: 'ZywOo', funcao: 'AWPer', timeId: null, mapas: 45, kills: 1240, deaths: 680 },
-  { id: 4, nickname: 'rain', funcao: 'Rifler', timeId: null, mapas: 36, kills: 890, deaths: 640 },
-// segue o fluxo
-  { id: 5, nickname: 'boaster', funcao: 'IGL', timeId: null, mapas: 40, kills: 720, deaths: 690 }
-];
-// esses 5 voltam no reset, todos sem time amarrado
+const jogadoresIniciais = [];
+// nada de jogador pronto: o banco começa vazio e o reset também zera
 
 function ler(caminho) {
   return JSON.parse(fs.readFileSync(caminho, 'utf8'));
@@ -228,7 +221,7 @@ app.post('/resetar', (req, res) => {
 // o reset também pode ser desfeito, então guardo os dois antes
   fs.writeFileSync(arquivoJogadores, JSON.stringify(jogadoresIniciais, null, 2));
   fs.writeFileSync(arquivoTimes, '[]');
-  res.json({ mensagem: 'Dados iniciais restaurados' });
+  res.json({ mensagem: 'Dados limpos restaurados' });
 });
 app.listen(porta, () => {
   console.log('Servidor rodando em http://localhost:' + porta);

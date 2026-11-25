@@ -96,7 +96,7 @@ export class StatsComponent implements OnInit {
 // desfazer recarrega tudo, já que pode ter mexido nos dois bancos
   }
   resetar(): void {
-    if (!confirm('Isso apaga os times e volta aos 5 jogadores. Continuar?')) return;
+    if (!confirm('Isso apaga todos os jogadores e times. Continuar?')) return;
     this.service.resetar().subscribe((res) => {
       this.mensagem = res.mensagem;
 // segue o fluxo

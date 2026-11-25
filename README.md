@@ -1,6 +1,6 @@
 # EcoStats
 
-Angular 20 + Angular Material na frente, Express com arquivo JSON atrás. Entrega: 25/11/2026. O logo do site fica em `cs2-panel/src/logo/Logo_EcoStats.jpg`.
+Angular 20 + Angular Material na frente, Express com arquivo JSON atrás. Entrega: 25/11/2026. O logo do site fica em `cs2-panel/src/logo/Logo_EcoStats.png`.
 
 É um ranking de CS2 com Home, stats, times e formulários. Tudo grava nos JSON do backend, então não some quando fecha o navegador.
 
@@ -44,8 +44,10 @@ Jogador em time não apaga: primeiro tira ele do time no formulário. Apagar um 
 
 ## Bancos
 
-- `backend/jogadores.json`: 5 jogadores de exemplo, todos com `"timeId": null`.
+- `backend/jogadores.json`: começa `[]`. Não tem jogador pré-cadastrado; o primeiro aparece quando você cadastra.
 - `backend/times.json`: começa `[]`. Cada time criado é só `{ "id", "nome", "coach" }`.
+
+O Reset também zera os dois bancos. Não volta nenhum jogador de exemplo.
 
 Backups (`*-anterior.json`) e o marcador `ultima-alteracao.txt` são do Desfazer e ficam fora do Git.
 
@@ -57,7 +59,7 @@ Todo `.ts`, `.js`, `.html` e `.css` tem um comentário em português a cada 5 li
 
 ```bash
 git add .
-git commit -m "Corrige vínculo de times e limite de jogadores"
+git commit -m "Remove jogadores iniciais e ajusta Reset"
 git push origin main
 ```
 
