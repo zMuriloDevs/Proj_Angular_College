@@ -1,11 +1,15 @@
-.subtitulo { color: #6d4b46; margin-bottom: 18px; }
-.form-card { max-width: 760px; }
+.form-card {
+  max-width: 760px;
+  border-top: 3px solid var(--item);
+  padding-top: 16px;
+}
+/* segue o estilo */
 .campo { width: 100%; }
 .linha { display: flex; gap: 14px; flex-wrap: wrap; }
-.linha .campo { flex: 1 1 200px; }
-/* cada campo ocupa a largura e a linha quebra no celular */
+/* formulário começa com um traço forte, como matéria de jornal */
 
-.erro { color: var(--forge); font-size: 13px; margin: -6px 0 10px; }
-.botoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.linha .campo { flex: 1 1 200px; }
+.erro { margin: -6px 0 10px; }
+.botoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--item); }
 form { padding-top: 8px; }
-/* aviso laranja e botões lado a lado */
+/* os botões ficam numa faixa separada no fim */

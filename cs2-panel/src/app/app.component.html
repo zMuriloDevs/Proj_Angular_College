@@ -1,26 +1,23 @@
-<mat-toolbar color="primary" class="menu">
-  <img src="logo/Logo_EcoStats.jpg" alt="Logo da EcoStats" class="logo">
-  <span class="titulo">{{ titulo }}</span>
-  <span class="espaco"></span>
-  <a mat-button routerLink="/home" routerLinkActive="ativo">
-<!-- segue o markup -->
-    <mat-icon>home</mat-icon> Início
-  </a>
-<!-- o ativo é pintado de amarelo pelo css -->
-  <a mat-button routerLink="/stats" routerLinkActive="ativo">
-    <mat-icon>bar_chart</mat-icon> Estatísticas
-  </a>
-  <a mat-button routerLink="/times" routerLinkActive="ativo">
-    <mat-icon>groups</mat-icon> Times
-<!-- pedaço da tela -->
-  </a>
-<!-- quarto link leva ao cadastro de jogador -->
-  <a mat-button routerLink="/novo" routerLinkActive="ativo">
-    <mat-icon>person_add</mat-icon> Novo jogador
-  </a>
-</mat-toolbar>
+<header class="masthead">
+  <div class="masthead-topo">
+<!-- o topo imita o cabecalho de um jornal -->
+    <img src="logo/Logo_EcoStats.png" alt="Logo da EcoStats" class="logo">
+    <div>
+      <p class="cabecalho">Edição CS2 · ranking e estatísticas</p>
+      <p class="masthead-titulo">{{ titulo }}</p>
+<!-- nome do site em destaque, com logo transparente do lado -->
+    </div>
+  </div>
+  <nav class="menu" aria-label="Menu principal">
+    <a routerLink="/home" routerLinkActive="ativo">Início</a>
+    <a routerLink="/stats" routerLinkActive="ativo">Estatísticas</a>
+<!-- os links viram uma faixa, sem botões arredondados -->
+    <a routerLink="/times" routerLinkActive="ativo">Times</a>
+    <a routerLink="/novo" routerLinkActive="ativo">Novo jogador</a>
+  </nav>
+</header>
 <main class="conteudo">
-<!-- continuo aqui -->
+<!-- segue o markup -->
   <router-outlet></router-outlet>
 </main>
-<!-- cada rota desenha a página dentro desse painel -->
+<!-- cada rota desenha a página dentro do painel -->

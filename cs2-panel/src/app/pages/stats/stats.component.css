@@ -1,35 +1,45 @@
-.subtitulo { color: #6d4b46; margin-bottom: 16px; }
-.filtros { margin-bottom: 16px; }
+.filtros {
+  border-bottom: 1px solid var(--item);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+/* segue o estilo */
 .linha-filtros { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .campo-busca { flex: 2 1 260px; }
 .campo-filtro { flex: 1 1 160px; }
-/* os filtros quebram linha sozinhos no celular */
+/* filtros em faixa, sem card colorido por trás */
 
-.mensagem { color: var(--forge); font-size: 13px; margin: 6px 0 0; }
-.tabela-card { padding: 8px; }
+.mensagem { margin: 8px 0 0; }
+.tabela-card { padding: 0; }
 .tabela-wrapper { overflow-x: auto; }
 .tabela { width: 100%; min-width: 820px; }
-/* a tabela larga rola pra lado sem bagunçar a página */
+/* a tabela larga rola de lado no celular */
 
-.tabela .mat-mdc-header-row { background: var(--coral); }
-.tabela mat-header-cell { font-weight: 800; color: var(--chocolate); }
-.tabela .mat-mdc-row:nth-child(even) { background: rgba(247, 135, 100, 0.2); }
-/* cabeçalho coral e linhas alternadas bem leves */
+.tabela .mat-mdc-header-row { background: var(--item); }
+.tabela mat-header-cell {
+  color: var(--realce);
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 11px;
+/* detalhe simples */
+  text-transform: uppercase;
+}
+.tabela mat-row { border-bottom: 1px solid var(--item); }
+/* cabeçalho em tijolo, linhas separadas por traço, sem listras */
 
-.posicao { font-weight: 800; color: var(--forge); width: 40px; }
-.kd-destaque { font-weight: 800; color: var(--forge); }
+.posicao { font-family: 'Rubik', 'Archivo', sans-serif; font-weight: 700; color: var(--item); width: 40px; }
+.kd-destaque { font-family: 'Rubik', 'Archivo', sans-serif; font-weight: 700; color: var(--item); }
 mat-cell, mat-header-cell { padding-right: 10px; }
-/* posição e K/D em laranja, iguais aos destaques */
+/* posição e K/D em destaque, mesma tinta do cabeçalho */
 
-.vazio { color: #6d4b46; text-align: center; padding: 18px; }
-.nota { color: #6d4b46; font-size: 12px; margin-top: 14px; }
-.opcoes { margin-top: 12px; color: #6d4b46; font-size: 12px; }
-.opcoes summary { cursor: pointer; padding: 4px 0; }
-/* Reset segue escondido no details, só a cor mudou */
+.vazio { text-align: center; padding: 18px; }
+.nota { font-size: 11px; font-style: italic; margin-top: 14px; }
+.opcoes { margin-top: 14px; border-top: 1px solid var(--item); padding-top: 8px; font-size: 11px; }
+.opcoes summary { cursor: pointer; }
+/* Reset fica como nota de rodapé, escondido no details */
 
 .opcoes .reset { font-size: 11px; min-width: 0; }
 @media (max-width: 520px) {
-  .subtitulo { font-size: 13px; }
-  .nota { font-size: 11px; }
+  .nota { font-size: 10px; }
+  .opcoes { font-size: 10px; }
 }
-/* telas pequenas com textos de apoio menores */
+/* textos de apoio menores em telas pequenas */

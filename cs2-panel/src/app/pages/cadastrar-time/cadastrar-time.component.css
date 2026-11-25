@@ -1,10 +1,14 @@
-.subtitulo { color: #6d4b46; margin-bottom: 18px; }
-.form-card { max-width: 760px; }
+.form-card {
+  max-width: 760px;
+  border-top: 3px solid var(--item);
+  padding-top: 16px;
+}
+/* segue o estilo */
 .campo { width: 100%; margin-bottom: 6px; }
 .linha { display: flex; gap: 14px; flex-wrap: wrap; }
-/* só dois campos, então o formulário fica bem curto */
+/* só nome e coach, num formulário curto e reto */
 
-.erro { color: var(--forge); font-size: 13px; margin: 0 0 10px; }
-.botoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.erro { margin: 0 0 10px; }
+.botoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--item); }
 form { padding-top: 8px; }
-/* o aviso aparece se faltar nome ou coach */
+/* mesma faixa de botões do cadastro de jogador */

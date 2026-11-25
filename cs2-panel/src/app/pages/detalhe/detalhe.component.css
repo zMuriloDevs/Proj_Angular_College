@@ -1,20 +1,23 @@
 .detalhe { max-width: 760px; }
-.grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
-.caixa {
-  background: var(--coral);
-  border-radius: 16px;
-/* ajuste rápido */
-  padding: 14px;
-  text-align: center;
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  border-top: 1px solid var(--item);
+/* segue o estilo */
+  border-bottom: 1px solid var(--item);
 }
-/* caixas coral que se acomodam sozinhas no celular */
+/* ficha em colunas, separada por regras horizontais */
 
-.rotulo { display: block; color: var(--chocolate); font-size: 12px; margin-bottom: 6px; }
-.caixa strong { font-size: 22px; color: var(--chocolate); }
-.caixa.destaque { background: var(--chocolate); }
-.caixa.destaque .rotulo, .caixa.destaque strong { color: var(--lime); }
-/* o K/D fica em amarelo sobre marrom */
+.caixa { padding: 14px 10px; border-right: 1px solid var(--item); text-align: center; }
+.caixa:last-child { border-right: 0; }
+.rotulo { display: block; color: var(--item); font-size: 10px; text-transform: uppercase; margin-bottom: 6px; }
+.caixa strong { font-family: 'Rubik', 'Archivo', sans-serif; font-size: 22px; color: var(--texto); }
+/* rótulo miúdo e número grande em Rubik */
 
-.explicacao { color: #6d4b46; font-size: 13px; margin-top: 16px; }
-mat-card-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 12px; }
-/* embaixo os botões quebram linha se precisar */
+.caixa.destaque { background: var(--item); }
+.caixa.destaque .rotulo, .caixa.destaque strong { color: var(--realce); }
+.explicacao { font-size: 12px; font-style: italic; margin-top: 14px; }
+/* só o K/D ganha fundo escuro, com texto claro */
+
+mat-card-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 0 0 !important; border-top: 1px solid var(--item); }
+/* botões embaixo da ficha, com um traço em cima */

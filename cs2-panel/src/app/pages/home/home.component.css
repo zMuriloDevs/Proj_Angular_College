@@ -1,36 +1,68 @@
-.blocos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
-.bloco h2 { display: flex; align-items: center; gap: 8px; font-size: 20px; }
-.destaque {
-  background: var(--coral);
-  border-radius: 20px;
-/* ajuste rápido */
-  margin-bottom: 12px;
+.blocos {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
 }
-/* dois blocos lado a lado; o card de destaque vira coral */
-
-.nome { font-size: 24px; font-weight: 800; margin: 0; color: var(--chocolate); }
-.detalhe { color: #6d4b46; margin: 4px 0 14px; }
-.numeros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-/* quatro caixinhas com os números do cálculo */
-
-.numeros div { background: var(--claro); border-radius: 14px; padding: 10px; text-align: center; }
-.numeros span { display: block; font-size: 12px; color: #6d4b46; }
-.numeros strong { font-size: 20px; color: var(--forge); }
-.numeros .pontos { background: var(--chocolate); }
-.numeros .pontos span, .numeros .pontos strong { color: var(--lime); }
-/* a pontuação vem em amarelo sobre marrom, bem chamativo */
-
-.regra { font-size: 12px; color: #6d4b46; margin: 14px 0 0; }
-h3 { font-size: 15px; margin: 0 0 8px; color: var(--chocolate); }
-.valor { font-weight: 800; color: var(--forge); margin: 4px 0; }
-.jogadores { color: #6d4b46; font-size: 13px; margin: 0 0 16px; }
-/* os dois destaques de time seguem o mesmo estilo */
-
-.acao { margin-top: 4px; }
-.vazio { color: #6d4b46; }
-@media (max-width: 520px) {
-  .bloco h2 { font-size: 18px; }
-  .nome { font-size: 20px; }
-/* detalhe visual */
+/* segue o estilo */
+.bloco {
+  border-right: 1px solid var(--item);
+  padding-right: 20px;
 }
-/* no celular os títulos encolhem um pouco */
+.bloco:last-child { border-right: 0; padding-right: 0; }
+/* duas colunas, com uma régua fina separando */
+
+.nome {
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 26px;
+  line-height: 1.1;
+  margin: 0;
+/* detalhe simples */
+  color: var(--texto);
+}
+.detalhe {
+  color: var(--item);
+  font-size: 11px;
+/* mantive reto */
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 4px 0 12px;
+}
+/* o nome é manchete, o time e a função viram linha de apoio */
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--item);
+  border-bottom: 1px solid var(--item);
+/* traco e texto */
+}
+.numeros div { padding: 10px 8px; border-right: 1px solid var(--item); }
+.numeros div:last-child { border-right: 0; }
+/* quatro colunas de números, separadas por traços */
+
+.numeros span { display: block; font-size: 10px; text-transform: uppercase; color: var(--item); }
+.numeros strong { font-family: 'Rubik', 'Archivo', sans-serif; font-size: 20px; color: var(--texto); }
+.regra { font-size: 11px; font-style: italic; margin: 10px 0 0; }
+/* a regra da pontuação fica em nota de rodapé */
+
+h3 {
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 15px;
+  border-bottom: 1px solid var(--item);
+  padding-bottom: 6px;
+/* ajuste rapido */
+  margin: 16px 0 10px;
+}
+.valor { font-family: 'Rubik', 'Archivo', sans-serif; font-weight: 700; color: var(--item); margin: 4px 0; }
+.jogadores { font-size: 12px; margin: 0 0 12px; }
+/* cada time em destaque ganha um subtítulo de seção */
+
+.acao { margin-top: 8px; }
+.vazio { color: var(--texto); }
+@media (max-width: 760px) {
+  .blocos { grid-template-columns: 1fr; }
+  .bloco { border-right: 0; border-bottom: 1px solid var(--item); padding: 0 0 18px; }
+/* segue o estilo */
+  .numeros { grid-template-columns: repeat(2, 1fr); }
+}
+/* no celular as colunas empilham, mantendo as regras */

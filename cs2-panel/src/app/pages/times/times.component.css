@@ -1,14 +1,24 @@
-.subtitulo { color: #6d4b46; margin-bottom: 14px; }
 .acao { margin-bottom: 16px; }
-.grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
-.time-card h2 { margin: 0 0 6px; font-size: 20px; }
-/* grade de cards que se acomoda conforme a tela */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0 24px;
+/* segue o estilo */
+}
+.grade { border-top: 1px solid var(--item); }
+/* lista em colunas, com uma régua em cima */
 
-.time-card { background: var(--coral) !important; }
-.coach { color: var(--chocolate); margin: 0 0 10px; }
-.jogadores { color: var(--chocolate); font-size: 13px; margin: 0; }
-.quantidade { color: var(--forge); font-weight: 800; font-size: 12px; margin: 6px 0 0; }
-/* card coral com coach, jogadores e a contagem de vagas */
+.time-card { border-bottom: 1px solid var(--item); padding: 14px 0; }
+.time-card h2 {
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 20px;
+  margin: 0 0 6px;
+/* detalhe simples */
+}
+.coach { color: var(--texto); font-size: 12px; margin: 0 0 10px; }
+/* cada time é uma notinha, não um card colorido */
 
-.vazio { color: #6d4b46; margin-top: 14px; }
-/* quando não tem time, aparece só esse aviso */
+.jogadores { color: var(--texto); font-size: 13px; margin: 0; }
+.quantidade { color: var(--item); font-family: 'Rubik', 'Archivo', sans-serif; font-size: 12px; margin: 6px 0 0; }
+.vazio { margin-top: 14px; }
+/* a contagem de vagas usa a mesma tinta do cabeçalho */

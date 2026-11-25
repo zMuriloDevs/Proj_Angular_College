@@ -1,43 +1,75 @@
-.menu.mat-mdc-toolbar {
-  background: var(--chocolate) !important;
-  color: #fff !important;
-  border-radius: 0 0 22px 22px;
-  gap: 8px;
-/* ajuste rápido */
+.masthead {
+  background: var(--fundo);
+  border-bottom: 4px double var(--item);
+  padding: 14px 20px 0;
+}
+/* masthead com traço duplo embaixo e faixa de links */
+/* o topo do jornal: nome grande e logo sem fundo */
+
+.logo { height: 52px; width: auto; display: block; }
+.cabecalho {
+  margin: 0;
+  color: var(--realce);
+  font-size: 10px;
+/* segue o estilo */
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+/* linha miúda acima do nome, bem de jornal */
+
+.masthead-titulo {
+  margin: 0;
+  font-family: 'Rubik', 'Archivo', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+/* detalhe simples */
+  line-height: 1;
+  color: var(--painel);
+}
+/* a manchete do site usa Rubik, o resto do site usa Archivo */
+
+.menu {
+  max-width: 1180px;
+  margin: 12px auto 0;
+  display: flex;
   flex-wrap: wrap;
-  min-height: 64px;
+/* mantive reto */
+  border-top: 1px solid var(--item);
 }
-/* menu marrom, cantos arredondados e link quebrando no celular */
-
-.logo { height: 38px; width: auto; border-radius: 10px; margin-right: 8px; }
-.titulo { font-weight: 800; font-size: 20px; }
-.espaco { flex: 1 1 auto; }
-/* logo do site do ladinho do nome */
-.menu a { border-radius: 999px; }
-/* links em pílula, o espaço empurra o grupo pro lado */
-
-.menu .ativo {
-  background: var(--lime) !important;
-  color: var(--chocolate) !important;
+.menu a {
+  padding: 8px 16px;
+  color: var(--painel);
+/* traco e texto */
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  border-right: 1px solid var(--item);
 }
-.menu .ativo .mat-icon { color: var(--chocolate) !important; }
-/* o link da página aberta ganha o amarelo bem vivo */
+/* separadores finos entre os links, sem pílulas */
+
+.menu a.ativo {
+  background: var(--item);
+  color: var(--realce);
+}
+.menu a:hover { background: var(--item); color: var(--realce); }
+/* o link aberto fica com o fundo de tijolo */
 
 .conteudo {
   max-width: 1180px;
-  margin: 16px auto 28px;
+  margin: 20px auto 36px;
   padding: 24px;
-  background: var(--claro);
-/* detalhe visual */
-  border-radius: 24px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  background: var(--painel);
+/* ajuste rapido */
+  border: 1px solid var(--item);
 }
-/* o conteúdo fica num painel clarinho em cima do fundo azul */
+/* a folha terracota segura todo o texto */
 
-@media (max-width: 520px) {
-  .conteudo { padding: 14px; margin: 10px; border-radius: 18px; }
-  .titulo { font-size: 17px; }
-  .logo { height: 30px; }
-  .menu { gap: 2px; }
+@media (max-width: 640px) {
+  .masthead { padding: 10px 12px 0; }
+  .logo { height: 38px; }
+  .masthead-titulo { font-size: 26px; }
+  .conteudo { margin: 12px; padding: 14px; }
+/* segue o estilo */
+  .menu a { padding: 6px 10px; font-size: 12px; }
 }
-/* no celular eu aperto tudo um pouco pra caber */
+/* no celular o jornal encolhe, mas mantém as regras */

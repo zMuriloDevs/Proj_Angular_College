@@ -59,7 +59,7 @@ Todo `.ts`, `.js`, `.html` e `.css` tem um comentário em português a cada 5 li
 
 ```bash
 git add .
-git commit -m "Remove jogadores iniciais e ajusta Reset"
+git commit -m "Reformula layout como página de jornal"
 git push origin main
 ```
 
