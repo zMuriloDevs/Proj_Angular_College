@@ -9,50 +9,45 @@
       <div class="grade">
         <div class="caixa">
           <span class="rotulo">Mapas</span>
-  <!-- Cada caixa mostra um número importante da ficha. -->
+  <!-- O valor de mapas aparece em destaque. -->
           <strong>{{ jogador.mapas }}</strong>
-  <!-- Cada caixa mostra um número importante da ficha. -->
+  <!-- Cada caixa destaca um número importante da ficha. -->
         </div>
         <div class="caixa">
           <span class="rotulo">Kills</span>
           <strong>{{ jogador.kills }}</strong>
         </div>
-  <!-- Agora vem a caixa de deaths do jogador. -->
+  <!-- Abro a caixa de deaths. -->
         <div class="caixa">
-  <!-- Sigo repetindo a mesma ideia para deaths, K/D e rating. -->
+  <!-- Agora vem a caixa de deaths do jogador. -->
           <span class="rotulo">Deaths</span>
           <strong>{{ jogador.deaths }}</strong>
         </div>
         <div class="caixa">
           <span class="rotulo">K/D ratio</span>
-  <!-- Esse número é o K/D calculado no componente. -->
+  <!-- O K/D já vem calculado pelo componente. -->
           <strong>{{ kd(jogador) }}</strong>
         </div>
-  <!-- Aqui aparece o K/D já calculado pelo método do componente. -->
-        <div class="caixa">
-          <span class="rotulo">Rating</span>
-          <strong>{{ jogador.rating }}</strong>
-        </div>
+  <!-- O K/D aparece calculado pelo método do componente. -->
       </div>
-  <!-- Depois da grade eu escrevo uma explicação curta. -->
       <p class="explicacao">Estatísticas salvas no banco local do trabalho.</p>
-  <!-- A grade termina com uma explicação curta sobre os dados. -->
     </mat-card-content>
+  <!-- Depois da grade eu deixo uma explicação curta sobre os dados. -->
     <mat-card-actions>
       <a mat-raised-button color="primary" [routerLink]="['/editar', jogador.id]">
         <mat-icon>edit</mat-icon> Editar
       </a>
-  <!-- O botão editar leva para a mesma tela de formulário, com o id na URL. -->
+  <!-- O botão editar usa o mesmo formulário com o id na URL. -->
       <button mat-stroked-button color="warn" (click)="excluir()">
         <mat-icon>delete</mat-icon> Excluir
       </button>
       <button mat-button (click)="voltar()">
         <mat-icon>arrow_back</mat-icon> Voltar
-  <!-- O botão voltar só muda de página e não apaga nada. -->
+  <!-- Fecho o botão Voltar antes de encerrar as ações. -->
       </button>
     </mat-card-actions>
-  <!-- Excluir pede confirmação; voltar apenas muda de página. -->
+  <!-- Excluir pede confirmação; voltar só troca de página. -->
   </mat-card>
 </div>
 <ng-template #carregandoTpl><p>Carregando ficha do jogador...</p></ng-template>
-<!-- Se algo der errado no carregamento, essa mensagem aparece. -->
+<!-- Se o carregamento falhar, essa mensagem aparece. -->

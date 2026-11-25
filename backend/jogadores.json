@@ -6,8 +6,7 @@
     "time": "NAVI",
     "mapas": 42,
     "kills": 1180,
-    "deaths": 620,
-    "rating": 1.38
+    "deaths": 620
   },
   {
     "id": 2,
@@ -16,8 +15,7 @@
     "time": "Team Spirit",
     "mapas": 38,
     "kills": 1050,
-    "deaths": 590,
-    "rating": 1.35
+    "deaths": 590
   },
   {
     "id": 3,
@@ -26,8 +24,7 @@
     "time": "Vitality",
     "mapas": 45,
     "kills": 1240,
-    "deaths": 680,
-    "rating": 1.33
+    "deaths": 680
   },
   {
     "id": 4,
@@ -36,8 +33,7 @@
     "time": "FaZe",
     "mapas": 36,
     "kills": 890,
-    "deaths": 640,
-    "rating": 1.18
+    "deaths": 640
   },
   {
     "id": 5,
@@ -46,157 +42,6 @@
     "time": "Fnatic",
     "mapas": 40,
     "kills": 720,
-    "deaths": 690,
-    "rating": 1.05
-  },
-  {
-    "nickname": "Mikey",
-    "funcao": "Rifler",
-    "time": "northamerica",
-    "mapas": 10,
-    "kills": 106,
-    "deaths": 27,
-    "rating": 3.29,
-    "id": 11
-  },
-  {
-    "nickname": "codeine",
-    "funcao": "Rifler",
-    "time": "northamerica",
-    "mapas": 10,
-    "kills": 384,
-    "deaths": 107,
-    "rating": 3.26,
-    "id": 12
-  },
-  {
-    "nickname": "lancer",
-    "funcao": "Rifler",
-    "time": "asia",
-    "mapas": 10,
-    "kills": 399,
-    "deaths": 126,
-    "rating": 3.23,
-    "id": 13
-  },
-  {
-    "nickname": "@ins1derft",
-    "funcao": "Rifler",
-    "time": "europe",
-    "mapas": 10,
-    "kills": 102,
-    "deaths": 10,
-    "rating": 3.23,
-    "id": 14
-  },
-  {
-    "nickname": "N󠀡󠀡󠀡o⁧⁧s1m⁧⁧ple",
-    "funcao": "Rifler",
-    "time": "northamerica",
-    "mapas": 10,
-    "kills": 256,
-    "deaths": 104,
-    "rating": 3.22,
-    "id": 15
-  },
-  {
-    "nickname": "Jix",
-    "funcao": "Rifler",
-    "time": "europe",
-    "mapas": 10,
-    "kills": 64,
-    "deaths": 12,
-    "rating": 3.21,
-    "id": 16
-  },
-  {
-    "nickname": "Leito",
-    "funcao": "Rifler",
-    "time": "europe",
-    "mapas": 10,
-    "kills": 61,
-    "deaths": 17,
-    "rating": 3.2,
-    "id": 17
-  },
-  {
-    "nickname": "⭕⃤  meMo ツ",
-    "funcao": "Rifler",
-    "time": "europe",
-    "mapas": 10,
-    "kills": 192,
-    "deaths": 49,
-    "rating": 3.19,
-    "id": 18
-  },
-  {
-    "nickname": "偷吃诱饵弹",
-    "funcao": "Rifler",
-    "time": "china",
-    "mapas": 10,
-    "kills": 104,
-    "deaths": 18,
-    "rating": 3.18,
-    "id": 19
-  },
-  {
-    "nickname": "✪Vinícius么✪♡",
-    "funcao": "Rifler",
-    "time": "southamerica",
-    "mapas": 10,
-    "kills": 159,
-    "deaths": 26,
-    "rating": 3.17,
-    "id": 20
-  },
-  {
-    "nickname": "Doru",
-    "funcao": "Rifler",
-    "time": "africa",
-    "mapas": 10,
-    "kills": 194,
-    "deaths": 48,
-    "rating": 3.17,
-    "id": 21
-  },
-  {
-    "nickname": "murino staff",
-    "funcao": "Rifler",
-    "time": "europe",
-    "mapas": 10,
-    "kills": 116,
-    "deaths": 17,
-    "rating": 3.17,
-    "id": 22
-  },
-  {
-    "nickname": "YamSense",
-    "funcao": "Rifler",
-    "time": "europe",
-    "mapas": 10,
-    "kills": 252,
-    "deaths": 107,
-    "rating": 3.16,
-    "id": 23
-  },
-  {
-    "nickname": "NoFear_",
-    "funcao": "Rifler",
-    "time": "europe",
-    "mapas": 10,
-    "kills": 147,
-    "deaths": 38,
-    "rating": 3.16,
-    "id": 24
-  },
-  {
-    "id": 25,
-    "nickname": "FalleN",
-    "funcao": "Rifler",
-    "time": "Furia",
-    "mapas": 1890,
-    "kills": 10650,
-    "deaths": 590,
-    "rating": 2.89
+    "deaths": 690
   }
 ]

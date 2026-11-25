@@ -1,114 +1,116 @@
 <h1>Estatísticas dos jogadores</h1>
-<p class="subtitulo">Ranking estilo HLTV: use a busca e o filtro para encontrar jogadores.</p>
+<p class="subtitulo">Ranking estilo HLTV, ordenado pelo maior K/D.</p>
 <mat-card class="filtros">
   <mat-card-content>
     <div class="linha-filtros">
-  <!-- O card de filtros segura a busca, o select e os botões de ação. -->
+  <!-- O card de filtros reúne busca, função, Desfazer e cadastro. -->
       <mat-form-field appearance="outline" class="campo-busca">
         <mat-label>Buscar por nick ou time</mat-label>
         <input matInput [(ngModel)]="busca" (ngModelChange)="aplicarFiltros()">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
-  <!-- O ngModel liga a busca à variável e avisa quando o texto muda. -->
+  <!-- O ngModel liga a busca à variável e refiltra quando o texto muda. -->
       <mat-form-field appearance="outline" class="campo-filtro">
         <mat-label>Função</mat-label>
         <mat-select [(ngModel)]="funcaoFiltro" (ngModelChange)="aplicarFiltros()">
           <mat-option *ngFor="let funcao of funcoes" [value]="funcao">{{ funcao }}</mat-option>
         </mat-select>
-  <!-- O select repete as opções do array funcoes com um *ngFor simples. -->
+  <!-- As opções vêm do array funcoes e o filtro é aplicado na troca. -->
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="importar()">
-        <mat-icon>download</mat-icon> Importar CS2 Leaderboard
+      <button mat-stroked-button (click)="desfazer()">
+        <mat-icon>undo</mat-icon> Desfazer última alteração
       </button>
       <a mat-stroked-button routerLink="/novo">
-  <!-- O botão importa os dados da API; o outro abre o cadastro manual. -->
+  <!-- Desfazer é visível; o Reset fica escondido mais abaixo. -->
         <mat-icon>add</mat-icon> Novo jogador
       </a>
     </div>
     <p class="mensagem" *ngIf="mensagem">{{ mensagem }}</p>
   </mat-card-content>
-  <!-- A mensagem só aparece quando existe texto nela. -->
+  <!-- A mensagem aparece só quando existe texto para mostrar. -->
 </mat-card>
 <mat-card class="tabela-card" *ngIf="!carregando; else carregandoTpl">
   <mat-card-content>
     <div class="tabela-wrapper">
       <table mat-table [dataSource]="exibidos" class="tabela">
-  <!-- A tabela recebe a lista já filtrada e ordenada do componente. -->
+  <!-- A tabela recebe a lista filtrada e ordenada do componente. -->
         <ng-container matColumnDef="posicao">
           <th mat-header-cell *matHeaderCellDef>#</th>
           <td mat-cell *matCellDef="let j" class="posicao">{{ j.posicao }}</td>
         </ng-container>
         <ng-container matColumnDef="nickname">
-  <!-- Cada ng-container define uma coluna diferente da tabela. -->
+  <!-- Cada ng-container define uma coluna da tabela. -->
           <th mat-header-cell *matHeaderCellDef>Jogador</th>
           <td mat-cell *matCellDef="let j"><b>{{ j.nickname }}</b></td>
         </ng-container>
         <ng-container matColumnDef="time">
+  <!-- A coluna de time vem depois do jogador. -->
           <th mat-header-cell *matHeaderCellDef>Time</th>
-  <!-- Depois de mapas vem a coluna de kills. -->
           <td mat-cell *matCellDef="let j">{{ j.time }}</td>
-  <!-- Aqui aparecem o time e a função de cada jogador. -->
         </ng-container>
+  <!-- Time e função aparecem como texto simples. -->
         <ng-container matColumnDef="funcao">
           <th mat-header-cell *matHeaderCellDef>Função</th>
           <td mat-cell *matCellDef="let j">{{ j.funcao }}</td>
+  <!-- Fecho a função antes de abrir a coluna de mapas. -->
         </ng-container>
-  <!-- Kills e deaths aparecem como números inteiros. -->
         <ng-container matColumnDef="mapas">
-  <!-- A coluna de mapas mostra quantos mapas o jogador já jogou. -->
           <th mat-header-cell *matHeaderCellDef>Mapas</th>
           <td mat-cell *matCellDef="let j">{{ j.mapas }}</td>
         </ng-container>
+  <!-- Mapas, kills e deaths são números vindos do banco. -->
         <ng-container matColumnDef="kills">
           <th mat-header-cell *matHeaderCellDef>Kills</th>
-  <!-- O K/D é calculado pelo método kd do componente. -->
           <td mat-cell *matCellDef="let j">{{ j.kills }}</td>
         </ng-container>
-  <!-- Kills e deaths vêm direto do objeto de cada jogador. -->
         <ng-container matColumnDef="deaths">
+  <!-- A coluna de deaths vem logo depois de kills. -->
           <th mat-header-cell *matHeaderCellDef>Deaths</th>
           <td mat-cell *matCellDef="let j">{{ j.deaths }}</td>
         </ng-container>
+  <!-- Abro a coluna de K/D, que é o critério do ranking. -->
         <ng-container matColumnDef="kd">
-  <!-- A coluna de ações tem olho, lápis e lixeira. -->
           <th mat-header-cell *matHeaderCellDef>K/D</th>
-  <!-- O K/D é calculado pelo método kd do componente. -->
-          <td mat-cell *matCellDef="let j">{{ kd(j) }}</td>
+          <td mat-cell *matCellDef="let j" class="kd-destaque">{{ kd(j) }}</td>
         </ng-container>
-        <ng-container matColumnDef="rating">
-          <th mat-header-cell *matHeaderCellDef>Rating</th>
-          <td mat-cell *matCellDef="let j"><b class="rating">{{ j.rating }}</b></td>
-  <!-- A lixeira pede confirmação antes de apagar o jogador. -->
-        </ng-container>
-  <!-- Rating é a coluna usada para ordenar o ranking. -->
         <ng-container matColumnDef="acoes">
+  <!-- A coluna de ações fecha a tabela. -->
           <th mat-header-cell *matHeaderCellDef>Ações</th>
+<!-- A coluna de ações tem olho para a ficha e lápis para editar. -->
           <td mat-cell *matCellDef="let j">
             <a mat-icon-button color="primary" [routerLink]="['/jogador', j.id]" title="Ficha">
-  <!-- O olho abre a ficha, o lápis abre a edição e a lixeira exclui. -->
               <mat-icon>visibility</mat-icon>
+  <!-- O olho abre a ficha; o lápis abre a edição. -->
             </a>
             <a mat-icon-button [routerLink]="['/editar', j.id]" title="Editar">
               <mat-icon>edit</mat-icon>
             </a>
-  <!-- Fecho a última coluna antes das linhas da tabela. -->
+<!-- A lixeira exclui o jogador, desde que ele não esteja em um time. -->
             <button mat-icon-button color="warn" (click)="excluir(j)" title="Excluir">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
         </ng-container>
-  <!-- Essas duas linhas finais dizem a ordem das colunas na tabela. -->
+  <!-- Essas linhas definem a ordem das colunas. -->
         <tr mat-header-row *matHeaderRowDef="colunas"></tr>
         <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
       </table>
     </div>
+<!-- Essas duas linhas finais dizem a ordem das colunas na tabela. -->
     <p class="vazio" *ngIf="exibidos.length === 0">
-  <!-- Se nada for encontrado, essa frase aparece. -->
       Nenhum jogador encontrado com esse nome ou filtro.
     </p>
   </mat-card-content>
 </mat-card>
-<!-- Se a busca não achar nada, mostramos essa mensagem em vez da tabela vazia. -->
+<!-- Se a busca não achar nada, a frase acima aparece no lugar da tabela. -->
 <ng-template #carregandoTpl><p>Carregando ranking...</p></ng-template>
-<p class="nota">Nos dados importados, a API pública não traz time nem função: uso a região como time e Rifler como função padrão.</p>
-<!-- O parágrafo final explica de onde vêm os dados importados. -->
+<details class="opcoes">
+  <summary>Opções avançadas</summary>
+  <button mat-button color="warn" class="reset" (click)="resetar()">
+    <mat-icon>restart_alt</mat-icon> Restaurar dados iniciais
+  <!-- O botão de Reset é discreto e pede confirmação. -->
+  </button>
+</details>
+<!-- O Reset fica dentro de details, fechado por padrão, para evitar cliques. -->
+<p class="nota">O ranking usa o K/D (kills ÷ deaths) como critério de ordem.</p>
+<!-- A nota final explica o critério usado para ordenar a lista. -->

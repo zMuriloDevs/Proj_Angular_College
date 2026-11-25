@@ -7,18 +7,22 @@
 .mensagem { color: #1565c0; font-size: 13px; margin: 6px 0 0; }
 .tabela-card { padding: 8px; }
 .tabela-wrapper { overflow-x: auto; }
-.tabela { width: 100%; min-width: 900px; }
-/* A tabela larga rola para o lado sem quebrar o layout da página. */
+.tabela { width: 100%; min-width: 820px; }
+/* A tabela larga rola para o lado sem bagunçar a página. */
 .posicao { font-weight: 700; color: #2563eb; width: 40px; }
-.rating { color: #2e7d32; font-size: 15px; }
+.kd-destaque { font-weight: 700; color: #2e7d32; }
 mat-header-cell { font-weight: 700; color: #374151; }
 mat-cell, mat-header-cell { padding-right: 10px; }
-/* A posição fica azul, o rating verde e o cabeçalho em negrito. */
+/* A posição fica azul e o K/D verde para chamar atenção. */
 .vazio { color: #6b7280; text-align: center; padding: 18px; }
 .nota { color: #6b7280; font-size: 12px; margin-top: 14px; }
+.opcoes { margin-top: 12px; color: #9ca3af; font-size: 12px; }
+/* details deixa o Reset escondido até o usuário abrir. */
+.opcoes summary { cursor: pointer; padding: 4px 0; }
+.opcoes .reset { font-size: 11px; min-width: 0; }
 @media (max-width: 520px) {
   .subtitulo { font-size: 13px; }
   .nota { font-size: 11px; }
-/* Essas regras menores valem somente para telas pequenas. */
+/* Fecho a media query das telas pequenas. */
 }
-/* No celular eu diminuo os textos de apoio para economizar espaço. */
+/* No celular eu reduzo os textos de apoio para economizar espaço. */

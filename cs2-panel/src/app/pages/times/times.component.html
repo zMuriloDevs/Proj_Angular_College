@@ -1,0 +1,33 @@
+<h1>Times cadastrados</h1>
+<p class="subtitulo">Cada time precisa ter exatamente 5 jogadores e 1 coach.</p>
+<a mat-raised-button color="primary" routerLink="/time/novo" class="acao">
+  <mat-icon>add</mat-icon> Novo time
+</a>
+<!-- O botão abre o formulário de cadastro de um time novo. -->
+<div class="grade" *ngIf="!carregando; else carregandoTpl">
+  <mat-card *ngFor="let time of times" class="time-card">
+    <mat-card-content>
+      <h2>{{ time.nome }}</h2>
+      <p class="coach">Coach: {{ time.coach }}</p>
+  <!-- Cada cardmostra o nome, o coach e os jogadores escolhidos. -->
+      <p class="jogadores">{{ nomes(time) }}</p>
+      <p class="quantidade">5 jogadores cadastrados</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-button [routerLink]="['/time/editar', time.id]">
+  <!-- O lápis abre a edição e a lixeira apaga o time. -->
+        <mat-icon>edit</mat-icon> Editar
+      </a>
+      <button mat-button color="warn" (click)="excluir(time)">
+        <mat-icon>delete</mat-icon> Excluir
+      </button>
+  <!-- Fecho as ações e o card deste time. -->
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!-- A grade organiza os cards e quebra linha no celular. -->
+<p class="vazio" *ngIf="!carregando && times.length === 0">
+  Nenhum time cadastrado ainda.
+</p>
+<ng-template #carregandoTpl><p>Carregando times...</p></ng-template>
+<!-- Se a lista estiver vazia, aparece este aviso simples. -->

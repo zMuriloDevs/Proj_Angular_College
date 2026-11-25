@@ -3,12 +3,11 @@ export interface Jogador {
   nickname: string;
   funcao: string;
   time: string;
-// Descrevo o formato do jogador; o id é opcional no cadastro manual.
+// Descrevo o jogador; o id é opcional porque quem cria é o backend.
   mapas: number;
   kills: number;
   deaths: number;
-  rating: number;
   posicao?: number;
-// A posição é só para o ranking e não precisa ser salva no banco.
+// A posição só aparece no ranking e não precisa ser salva.
 }
-// Os números são as estatísticas que aparecem na tela de estatísticas.
+// Kills e deaths são usados para calcular o K/D em várias telas.

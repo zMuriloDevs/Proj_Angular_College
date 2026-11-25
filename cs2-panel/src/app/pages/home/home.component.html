@@ -1,0 +1,71 @@
+<h1>Painel CS2</h1>
+<p class="subtitulo">Os melhores jogadores e times do nosso banco local.</p>
+<div class="blocos" *ngIf="!carregando; else carregandoTpl">
+  <section class="bloco">
+    <h2><mat-icon>emoji_events</mat-icon> Jogador Destaque</h2>
+  <!-- O primeiro bloco mostra o jogador com maior pontuação. -->
+    <ng-container *ngIf="jogadorDestaque() as j; else semJogador">
+      <mat-card class="destaque">
+        <mat-card-content>
+          <p class="nome">{{ j.nickname }}</p>
+  <!-- O card principal mostra quem tem a maior pontuação ponderada. -->
+          <p class="detalhe">{{ j.time }} • {{ j.funcao }}</p>
+          <div class="numeros">
+            <div><span>K/D</span><strong>{{ kd(j) }}</strong></div>
+            <div><span>Mapas</span><strong>{{ j.mapas }}</strong></div>
+  <!-- Cada caixa traz um número usado no cálculo do destaque. -->
+            <div><span>Kills</span><strong>{{ j.kills }}</strong></div>
+            <div><span>Pontuação</span><strong>{{ pontuacao(j) | number:'1.2-2' }}</strong></div>
+          </div>
+  <!-- A regra matemática fica visível dentro do card. -->
+          <p class="regra">Pontuação = K/D × √mapas. Desempate: maior K/D, depois mais mapas.</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  <!-- A regra aparece dentro do card para deixar o critério transparente. -->
+    <ng-template #semJogador><p class="vazio">Cadastre jogadores para ver o destaque.</p></ng-template>
+  </section>
+  <section class="bloco">
+    <h2><mat-icon>groups</mat-icon> Times em destaque</h2>
+    <ng-container *ngIf="times.length > 0; else semTime">
+  <!-- O card de times guarda os dois destaques separados. -->
+      <mat-card class="destaque">
+        <mat-card-content>
+          <h3>Time com mais kills</h3>
+  <!-- O bloco de times tem dois destaques separados, um para cada critério. -->
+          <ng-container *ngIf="timeMaiorKills() as t">
+            <p class="nome">{{ t.nome }}</p>
+            <p class="detalhe">Coach: {{ t.coach }}</p>
+            <p class="valor">Total de kills: {{ totalKills(t) }}</p>
+            <p class="jogadores">{{ nomes(t) }}</p>
+  <!-- Fecho o destaque de kills antes do próximo título. -->
+          </ng-container>
+  <!-- Aqui aparece o time com a maior soma de kills dos 5 jogadores. -->
+          <h3>Time com maior média de pontuação</h3>
+          <ng-container *ngIf="timeMaiorPontuacao() as t">
+            <p class="nome">{{ t.nome }}</p>
+            <p class="detalhe">Coach: {{ t.coach }}</p>
+            <p class="valor">Média: {{ mediaPontuacao(t) | number:'1.2-2' }}</p>
+  <!-- Os nomes dos 5 jogadores aparecem no time destaque. -->
+            <p class="jogadores">{{ nomes(t) }}</p>
+          </ng-container>
+        </mat-card-content>
+      </mat-card>
+  <!-- O segundo destaque usa a média das pontuações dos 5 jogadores. -->
+      <a mat-stroked-button routerLink="/time/novo" class="acao">
+        <mat-icon>add</mat-icon> Cadastrar time
+      </a>
+    </ng-container>
+    <ng-template #semTime>
+  <!-- Se não houver times, aparece este aviso. -->
+      <p class="vazio">Cadastre um time com 5 jogadores e 1 coach.</p>
+  <!-- Se não houver times, o aviso convida a cadastrar o primeiro. -->
+      <a mat-stroked-button routerLink="/time/novo" class="acao">
+        <mat-icon>add</mat-icon> Cadastrar time
+      </a>
+    </ng-template>
+  </section>
+<!-- Fecho os dois blocos antes da mensagem de carregamento. -->
+</div>
+<ng-template #carregandoTpl><p>Carregando painel...</p></ng-template>
+<!-- Enquanto as listas não chegam, aparece essa mensagem simples. -->

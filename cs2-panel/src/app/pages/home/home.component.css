@@ -1,0 +1,24 @@
+.blocos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; }
+.bloco h2 { display: flex; align-items: center; gap: 8px; font-size: 20px; }
+.destaque { margin-bottom: 12px; }
+/* A grade cria dois blocos lado a lado e quebra no celular. */
+.nome { font-size: 24px; font-weight: 700; margin: 0; color: #1f2937; }
+.detalhe { color: #6b7280; margin: 4px 0 14px; }
+.numeros { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+/* Os números do jogador ficam em quatro caixinhas. */
+.numeros div { background: #f4f6fa; border-radius: 8px; padding: 10px; text-align: center; }
+.numeros span { display: block; font-size: 12px; color: #6b7280; }
+.numeros strong { font-size: 20px; color: #2563eb; }
+.regra { font-size: 12px; color: #6b7280; margin: 14px 0 0; }
+/* A regra matemática aparece em texto pequeno dentro do card. */
+h3 { font-size: 15px; margin: 0 0 8px; color: #374151; }
+.valor { font-weight: 700; color: #2e7d32; margin: 4px 0; }
+.jogadores { color: #6b7280; font-size: 13px; margin: 0 0 16px; }
+.acao { margin-top: 4px; }
+/* Cada time em destaque mostra coach, total ou média e os 5 nicks. */
+.vazio { color: #6b7280; }
+@media (max-width: 520px) {
+  .bloco h2 { font-size: 18px; }
+  .nome { font-size: 20px; }
+}
+/* No celular eu reduzo os títulos para economizar espaço. */

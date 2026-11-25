@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nome": "Time Teste",
+    "coach": "Coach Teste",
+    "jogadores": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+]
